@@ -1,12 +1,21 @@
 <!-- 1 : toegevoed door Nijntje, later weer toevoegen maar voor devops even weg -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
     <style>
+        :root {
+            ---fs-small: ;
+            ---fs-medium: clamp(0.75rem, 1vw, 2rem);
+            ---fs-large: ;
+
+            ---ad-bg: aliceblue;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -33,7 +42,6 @@
             display: grid;
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
-            z-index: 1;
         }
 
         .hero-image {
@@ -43,7 +51,7 @@
             justify-content: center;
             display: flex;
             filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-            z-index: 2;
+            z-index: 1;
             grid-row: 2 / 10;
             grid-column: 4 / 8;
         }
@@ -57,7 +65,7 @@
 
         .p-left {
             box-sizing: border-box;
-            font-size: clamp(0.75rem, 1vw, 2rem); 
+            font-size: var(---fs-medium);
             grid-row: 5 / 6;
             grid-column: 1 / 2;
             /* background-color: aliceblue; */
@@ -70,7 +78,7 @@
 
         .p-right {
             box-sizing: border-box;
-            font-size: clamp(0.75rem, 1vw, 2rem); 
+            font-size: var(---fs-medium);
             grid-row: 5 / 6;
             grid-column: 10 / 11;
             /* background-color: aliceblue; */
@@ -86,8 +94,8 @@
             grid-column: 6 / 10;
             width: 100%;
             height: 100%;
-            font-size: clamp(2rem, 5vw, 6rem); 
-            z-index: 5;
+            font-size: clamp(2rem, 5vw, 6rem);
+            z-index: 2;
             padding: 0;
             margin: 0;
             mix-blend-mode: difference;
@@ -95,57 +103,76 @@
         }
 
         .photo-section {
-            min-height: 100vh;
             background: linear-gradient(to right, lightblue, rgb(232, 232, 232));
+            height: 100vh;
+            width: 100vw;
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: repeat(8, minmax(10vh, auto));
-            grid-column-gap: 10px;
-        }
-
-        .photo-section div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
         }
 
         .photo-section div img {
-            width: 100%;
+            height: 100%;
             filter: grayscale(100%) brightness(1.1);
         }
 
         .one {
-            grid-row: 2 / 5;
-            grid-column: 7 / 12;
-            z-index: 1;
-            opacity: 0.9;
+            grid-row: 1 / 6;
+            grid-column: 1 / 5;
+            background-color: var(---ad-bg);
+            text-align: center;
+            padding-top: 10px;
         }
 
         .two {
-            grid-row: 4 / 7;
-            grid-column: 2 / 8;
-            z-index: 2;
-            opacity: 0.9;
+            grid-row: 1 / 6;
+            grid-column: 7 / 11;
+            background-color: var(---ad-bg);
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        h2 {
+            grid-row: 7 / 9;
+            grid-column: 5 / 7;
+            /* background-color: var(---ad-bg); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: var(---fs-medium);
+            z-index: 1;
+            mix-blend-mode:hard-light;
+            
         }
 
         .three {
-            grid-row: 6 / 9;
-            grid-column: 6 / 11;
-            z-index: 2;
-            opacity: 1;
+            grid-row: 6 / 11;
+            grid-column: 1 / 5;
+            background-color: var(---ad-bg);
+            text-align: center;
+            padding-bottom: 10px;
         }
 
-        .bg-photo {
-            grid-row: 3 / 8;
-            grid-column: 3 / 11;
-            z-index: 0;
-            background-color: blueviolet;
-            border-radius: 50%;
-            opacity: 0.8;
+        .four {
+            grid-row: 6 / 11;
+            grid-column: 7 / 11;
+            background-color: var(---ad-bg);
+            text-align: center;
+            padding-bottom: 10px;
         }
 
+        .nijntje-photo {
+            grid-row: 1 / 11;
+            grid-column: 2 / 11;
+            
+            
+            padding: 10px 0;
+            
+        }
     </style>
 </head>
+
 <body>
     <nav>
         <div>
@@ -159,41 +186,45 @@
 
     <section class="hero-section">
 
-        <!-- Grid visible -->
-        <!-- <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
-        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
-        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
-        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
-        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
-        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
-        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
-        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
-        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
-        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div> -->
-
-
         <p class="p-left">Swsed3dfert6RDDDD-0M,MOI</p>
-    
-<div class="hero-image">
-<img src="./recourses/images/nijntjepng.png">
-</div>
-<h1>Nijntie Nijn problems but a purrr ain't one</h1>
-<p class="p-right">//////////////;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </p>
+
+        <div class="hero-image">
+            <img src="./recourses/images/nijntjepng.png">
+        </div>
+        <h1>Nijntie Nijn problems but a purrr ain't one</h1>
+        <p class="p-right">//////////////;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </p>
     </section>
 
-<section class="photo-section">
-<div class="one"><img src="./recourses/images/PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje"></div>
+    <section class="photo-section">
+<!-- 
+        <div class="one">
+            <img src="./recourses/images/PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje">
+        </div>
 
-<div class="two"><img src="./recourses/images/PHOTO-2024-10-14-18-19-18.jpg" alt="foto nijntje"></div>
 
-<div class="three"><img src="./recourses/images/PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje"></div>
-<div class="bg-photo"></div>
+        <div class="two">
+            <img src="./recourses/images/PHOTO-2024-10-14-18-19-18.jpg" alt="foto nijntje">
+        </div> -->
 
-</section>
+<div class="nijntje-photo">
+    <img src="./recourses/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">
+</div>
+
+        <h2>Meer foto's van Nijntje</h2>
+<!-- 
+        <div class="three">
+            <img src="./recourses/images/PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje">
+        </div>
+
+        <div class="four">
+            <img src="./recourses/images/PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje">
+        </div> -->
+    </section>
 
 
     <script>
 
     </script>
 </body>
+
 </html>
