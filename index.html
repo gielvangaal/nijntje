@@ -1,0 +1,243 @@
+1<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            box-sizing: border-box;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            z-index: 5;
+        }
+
+        nav div {
+            margin: 10px 25px;
+        }
+
+        .hero-image img {
+            width: auto;
+            max-width: 90%;
+            max-height: 90%;
+            filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+        }
+
+        .hero-section {
+            background: linear-gradient(to right, lightblue, rgb(232, 232, 232));
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-auto-rows: 10vh;
+            grid-column-gap: 10px;
+            grid-template-areas: 
+            ". . . . . . ."
+            ". . img img img . ."
+            ". . img img img . ."
+            ". . img img img . ."
+            "p-left . img img img . p-right"
+            ". . img img img . ."
+            ". . img img img . ."
+            ". . img img img . ."
+            ". . . h1 h1 . ."
+            ". . . . . . . ";
+        }
+
+        .hero-image {
+            grid-area: img;
+            /* background: linear-gradient(to right, blueviolet, rgb(182, 147, 215)); */
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+            z-index: 1;
+        }
+
+        .p-left {
+            grid-area: p-left;
+            justify-self: start;
+            padding-inline-start: 10px;
+        }
+
+        .p-right {
+            grid-area: p-right;
+            justify-self: end;
+            text-align: end;
+            padding-inline-end: 10px;
+        }
+
+        h1 {
+            grid-area: h1;
+            width: 40vw;
+            z-index: 5;
+        }
+
+        .photo-section {
+            min-height: 100vh;
+            background: linear-gradient(to right, lightblue, rgb(232, 232, 232));
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(8, minmax(10vh, auto));
+            grid-column-gap: 10px;
+        }
+
+        .photo-section div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-section div img {
+            width: 100%;
+            filter: grayscale(100%) brightness(1.1);
+        }
+
+        .one {
+            grid-row: 2 / 5;
+            grid-column: 7 / 12;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .two {
+            grid-row: 4 / 7;
+            grid-column: 2 / 8;
+            z-index: 2;
+            opacity: 0.9;
+        }
+
+        .three {
+            grid-row: 6 / 9;
+            grid-column: 6 / 11;
+            z-index: 2;
+            opacity: 1;
+        }
+
+        .bg-photo {
+            grid-row: 3 / 8;
+            grid-column: 3 / 11;
+            z-index: 0;
+            background-color: blueviolet;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        
+
+/* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ 
+
+/* SM: portrait phones, less than 576.98px */
+@media (max-width: 575.98px) {
+    .one {
+            grid-row: 1 / 4;
+            grid-column: 2 / 12 ;
+        }
+
+        .two {
+            grid-row: 4 / 7;
+            grid-column: 2 / 12;
+        }
+
+        .three {
+            grid-row: 7 / 10;
+            grid-column: 2 / 12;
+        }
+}
+
+/* MD: landscape phones, greater then 575.99 and less than 767.98px */
+@media screen and (min-width: 575.99px) and (max-width: 767.98px) {
+
+}
+
+/* LG: tablets, greater then 767.99 and less than 991.98px */
+@media screen and (min-width: 767.99px) and (max-width: 991.98px) {
+    .one {
+            grid-row: 2 / 5;
+            grid-column: 7 / 12;
+        }
+
+        .two {
+            grid-row: 3 / 6;
+            grid-column: 2 / 8;
+        }
+
+        .three {
+            grid-row: 4 / 8;
+            grid-column: 6 / 11;
+        }
+}
+
+/* XL: desktops, greater then 991.99 and less than 1199.98px */
+@media screen and (min-width: 991.99px) and (max-width: 1199.98px) {
+
+}
+
+/* XXL: large desktops, greater than 1199.99px */
+@media screen and (min-width:1199.99) {
+
+}
+/* MOBILE LANDSCAPE: mobile phones, less then 1000px and in landscape orientation */
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+
+}
+
+/* IPAD PRO: target ipad pro with higher DPI */
+@media only screen 
+  and (min-device-width: 1023px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  }
+
+    /* IPHONE SE: very small smartphones, less than 378px */
+@media screen and (max-width:378px) {
+
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            menu
+        </div>
+        <div>
+            contact
+        </div>
+    </nav>
+
+
+    <section class="hero-section">
+<p class="p-left">Swsed3dfert6RDDDD-0M,MOI</p>
+<div class="hero-image">
+<img src="/nijntjepng.png">
+</div>
+<h1>Nijntie Nijn problems but a pur ain't one</h1>
+<p class="p-right">        //////////////;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </p>
+    </section>
+
+<section class="photo-section">
+<div class="one"><img src="PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje"></div>
+
+<div class="two"><img src="PHOTO-2024-10-14-18-19-18.jpg" alt="foto nijntje"></div>
+
+<div class="three"><img src="PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje"></div>
+<div class="bg-photo"></div>
+
+</section>
+
+
+    <script>
+
+    </script>
+</body>
+</html>
