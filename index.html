@@ -26,13 +26,6 @@
             margin: 10px 25px;
         }
 
-        .hero-image img {
-            width: auto;
-            max-width: 100%;
-            max-height: 100%;
-            filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-        }
-
         .hero-section {
             background: linear-gradient(to right, lightblue, rgb(232, 232, 232));
             height: 100vh;
@@ -41,11 +34,6 @@
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
             z-index: 1;
-        }
-
-        .addbg {
-            /* background-color: rgb(255, 235, 205, 0.5);
-            z-index: 0; */
         }
 
         .hero-image {
@@ -58,8 +46,13 @@
             z-index: 2;
             grid-row: 2 / 10;
             grid-column: 4 / 8;
+        }
 
-            
+        .hero-image img {
+            width: auto;
+            max-width: 100%;
+            max-height: 100%;
+            filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
         }
 
         .p-left {
@@ -87,7 +80,6 @@
             height: 100%;
             word-wrap: break-word;
         }
-
 
         h1 {
             grid-row: 7 / 9;
@@ -151,77 +143,6 @@
             border-radius: 50%;
             opacity: 0.8;
         }
-
-        
-
-/* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ 
-
-/* SM: portrait phones, less than 576.98px */
-@media (max-width: 575.98px) {
-    .one {
-            grid-row: 1 / 4;
-            grid-column: 2 / 12 ;
-        }
-
-        .two {
-            grid-row: 4 / 7;
-            grid-column: 2 / 12;
-        }
-
-        .three {
-            grid-row: 7 / 10;
-            grid-column: 2 / 12;
-        }
-}
-
-/* MD: landscape phones, greater then 575.99 and less than 767.98px */
-@media screen and (min-width: 575.99px) and (max-width: 767.98px) {
-
-}
-
-/* LG: tablets, greater then 767.99 and less than 991.98px */
-@media screen and (min-width: 767.99px) and (max-width: 991.98px) {
-    .one {
-            grid-row: 2 / 5;
-            grid-column: 7 / 12;
-        }
-
-        .two {
-            grid-row: 3 / 6;
-            grid-column: 2 / 8;
-        }
-
-        .three {
-            grid-row: 4 / 8;
-            grid-column: 6 / 11;
-        }
-}
-
-/* XL: desktops, greater then 991.99 and less than 1199.98px */
-@media screen and (min-width: 991.99px) and (max-width: 1199.98px) {
-
-}
-
-/* XXL: large desktops, greater than 1199.99px */
-@media screen and (min-width:1199.99) {
-
-}
-/* MOBILE LANDSCAPE: mobile phones, less then 1000px and in landscape orientation */
-@media only screen and (max-width: 1000px) and (orientation: landscape) {
-
-}
-
-/* IPAD PRO: target ipad pro with higher DPI */
-@media only screen 
-  and (min-device-width: 1023px) 
-  and (max-device-width: 1366px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-  }
-
-    /* IPHONE SE: very small smartphones, less than 378px */
-@media screen and (max-width:378px) {
-
-}
 
     </style>
 </head>
