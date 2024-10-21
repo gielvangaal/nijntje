@@ -1,4 +1,5 @@
-1<!DOCTYPE html>
+<!-- 1 : toegevoed door Nijntje, later weer toevoegen maar voor devops even weg -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,57 +28,54 @@
 
         .hero-image img {
             width: auto;
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 100%;
+            max-height: 100%;
             filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
         }
 
         .hero-section {
             background: linear-gradient(to right, lightblue, rgb(232, 232, 232));
-            min-height: 100vh;
+            height: 100vh;
+            width: 100vw;
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            grid-auto-rows: 10vh;
-            grid-column-gap: 10px;
-            grid-template-areas: 
-            ". . . . . . ."
-            ". . img img img . ."
-            ". . img img img . ."
-            ". . img img img . ."
-            "p-left . img img img . p-right"
-            ". . img img img . ."
-            ". . img img img . ."
-            ". . img img img . ."
-            ". . . h1 h1 . ."
-            ". . . . . . . ";
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
+            z-index: 1;
+        }
+
+        .addbg {
+            /* background-color: rgb(255, 235, 205, 0.5);
+            z-index: 0; */
         }
 
         .hero-image {
-            grid-area: img;
             /* background: linear-gradient(to right, blueviolet, rgb(182, 147, 215)); */
             width: 100%;
             align-items: center;
             justify-content: center;
             display: flex;
             filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-            z-index: 1;
+            z-index: 2;
+            grid-row: 2 / 10;
+            grid-column: 4 / 8;
+            
         }
 
         .p-left {
-            grid-area: p-left;
+            
             justify-self: start;
             padding-inline-start: 10px;
         }
 
         .p-right {
-            grid-area: p-right;
+            
             justify-self: end;
             text-align: end;
             padding-inline-end: 10px;
         }
 
         h1 {
-            grid-area: h1;
+            
             width: 40vw;
             z-index: 5;
         }
@@ -217,12 +215,25 @@
 
 
     <section class="hero-section">
-<p class="p-left">Swsed3dfert6RDDDD-0M,MOI</p>
+
+        <!-- Grid visible -->
+        <!-- <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
+        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
+        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
+        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
+        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
+        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
+        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
+        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
+        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div>
+        <div class="addbg">1</div><div class="addbg">2</div><div class="addbg">3</div><div class="addbg">4</div><div class="addbg">5</div><div class="addbg">6</div><div class="addbg">7</div><div class="addbg">8</div><div class="addbg">9</div><div class="addbg">10</div> -->
+
+<!-- <p class="p-left">Swsed3dfert6RDDDD-0M,MOI</p> -->
 <div class="hero-image">
 <img src="./recourses/images/nijntjepng.png">
 </div>
-<h1>Nijntie Nijn problems but a pur ain't one</h1>
-<p class="p-right">        //////////////;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </p>
+<!-- <h1>Nijntie Nijn problems but a pur ain't one</h1>
+<p class="p-right">        //////////////;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </p> -->
     </section>
 
 <section class="photo-section">
