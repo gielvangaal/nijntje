@@ -11,7 +11,7 @@
         :root {
             ---fs-small: ;
             ---fs-medium: clamp(0.75rem, 1vw, 2rem);
-            ---fs-large: ;
+            ---fs-large: clamp(1.5rem, 2vw, 2.5rem);
 
             ---ad-bg: aliceblue;
         }
@@ -113,6 +113,7 @@
 
         .photo-section div img {
             height: 100%;
+            width: auto;
             filter: grayscale(100%) brightness(1.1);
         }
 
@@ -140,9 +141,11 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: var(---fs-medium);
+            font-size: var(---fs-large);
             z-index: 1;
-            mix-blend-mode:hard-light;
+            mix-blend-mode: difference;
+            color: pink;
+            /* filter: drop-shadow(4px 4px 5px rgba(255, 211, 211, 1)); */
             
         }
 
