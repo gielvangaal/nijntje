@@ -113,11 +113,12 @@
 
         .photo-section div img {
             height: 100%;
+
             width: auto;
             filter: grayscale(100%) brightness(1.1);
         }
 
-        .one {
+        /* .one {
             grid-row: 1 / 6;
             grid-column: 1 / 5;
             background-color: var(---ad-bg);
@@ -131,7 +132,7 @@
             background-color: var(---ad-bg);
             text-align: center;
             padding-top: 10px;
-        }
+        } */
 
         h2 {
             grid-row: 7 / 9;
@@ -146,10 +147,10 @@
             mix-blend-mode: difference;
             color: pink;
             /* filter: drop-shadow(4px 4px 5px rgba(255, 211, 211, 1)); */
-            
+
         }
 
-        .three {
+        /* .three {
             grid-row: 6 / 11;
             grid-column: 1 / 5;
             background-color: var(---ad-bg);
@@ -163,15 +164,30 @@
             background-color: var(---ad-bg);
             text-align: center;
             padding-bottom: 10px;
-        }
+        } */
 
         .nijntje-photo {
-            grid-row: 1 / 11;
-            grid-column: 2 / 11;
-            
-            
+            grid-row: 1 / 10;
+            grid-column: 1 / 6;
             padding: 10px 0;
+            /* background-color: var(---ad-bg);  */
+            padding-left: 5%;
+            overflow: hidden;
+        }
+
+        #photobook-container {
+            grid-row: 1 / 10;
+            grid-column: 6 / 12;
+            background-color: var(---ad-bg);
             
+        }
+
+        #photobook-container.hidden {
+            display: none;
+        }
+
+        #photobook-container.block {
+            display: block;
         }
     </style>
 </head>
@@ -199,7 +215,7 @@
     </section>
 
     <section class="photo-section">
-<!-- 
+        <!-- 
         <div class="one">
             <img src="./recourses/images/PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje">
         </div>
@@ -209,12 +225,16 @@
             <img src="./recourses/images/PHOTO-2024-10-14-18-19-18.jpg" alt="foto nijntje">
         </div> -->
 
-<div class="nijntje-photo">
-    <img src="./recourses/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">
-</div>
+        <div class="nijntje-photo">
+            <img src="./recourses/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">
+        </div>
 
-        <h2>Meer foto's van Nijntje</h2>
-<!-- 
+        <h2 id="toggleButton">Meer foto's van Nijntje</h2>
+
+        <div id="photobook-container" class="hidden">
+            tekst
+        </div>
+        <!-- 
         <div class="three">
             <img src="./recourses/images/PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje">
         </div>
@@ -224,9 +244,17 @@
         </div> -->
     </section>
 
-
     <script>
-
+        document.getElementById("toggleButton").addEventListener("click", function() {
+            const div = document.getElementById("photobook-container");
+            if (div.classList.contains("hidden")) {
+                div.classList.remove("hidden");
+                div.classList.add("block");
+            } else {
+                div.classList.remove("block");
+                div.classList.add("hidden");
+            }
+        });
     </script>
 </body>
 
