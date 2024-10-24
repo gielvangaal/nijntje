@@ -203,6 +203,30 @@
             opacity: 1;
             cursor: pointer;
         }
+
+
+        /* SM: portrait phones, less than 576.98px */
+        @media (max-width: 575.98px) {
+            .nijntje-photo {
+                grid-row: 1 / 5;
+                grid-column: 1 / 11;
+                padding: 10px 20px 0 0;
+                
+            }
+
+            h2 {
+                grid-row: 4 / 6;
+                grid-column: 3 / 6;
+            }
+
+            #photobook-container {
+            grid-row: 6 / 11;
+            grid-column: 1 / 11;
+            padding: 0;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+        }
     </style>
 </head>
 
