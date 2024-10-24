@@ -285,6 +285,30 @@
 
     </section>
 
+    <section class="messageboard">
+
+        <h2>Message Board</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Your name" required>
+            <textarea name="content" placeholder="Your message" required></textarea>
+            <button type="submit">Post</button>
+        </form>
+        
+        <h2>Messages</h2>
+        <ul>
+            {% for message in messages %}
+                <li>
+                    <strong>{{ message.username }}</strong>: {{ message.content }} <em>{{ message.created_at }}</em>
+                </li>
+            {% empty %}
+                <li>No messages yet.</li>
+            {% endfor %}
+        </ul>
+        
+
+    </section>
+
     <script>
 
         // SWITCH IMAGE // 
@@ -327,6 +351,8 @@
                 console.log(orginal);
             }
         });
+
+    
     </script>
 </body>
 
