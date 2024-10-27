@@ -130,7 +130,7 @@
             filter: grayscale(100%) brightness(1.1);
         }
 
-        h2 {
+        #toggleButton {
             grid-row: 6 / 8;
             grid-column: 5 / 7;
             /* background-color: var(---ad-bg); */
@@ -144,7 +144,7 @@
             color: #ffc0cb;
         }
 
-        h2:hover {
+        #toggleButton:hover {
             color: whitesmoke;
             cursor: pointer;
             font-size: 400%;
@@ -204,6 +204,15 @@
         #photobook-container img:hover {
             opacity: 1;
             cursor: pointer;
+        }
+
+        .messageboard {
+            background: linear-gradient(to left, blueviolet, rgb(182, 147, 215));
+            height: 50vh;
+            width: 100vw;
+            display: grid;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
         }
 
 
@@ -293,7 +302,7 @@
             <textarea name="content" placeholder="Your message" required></textarea>
             <button type="submit">Post</button>
         </form>
-        
+
         <h2>Messages</h2>
         <ul id="message-list">
             <!-- Berichten worden hier geladen door JavaScript -->
