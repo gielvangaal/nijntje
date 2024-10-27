@@ -12,6 +12,8 @@
             ---fs-small: ;
             ---fs-medium: clamp(0.75rem, 1vw, 2rem);
             ---fs-large: clamp(1.5rem, 2vw, 2.5rem);
+            ---fs-xl: clamp(2rem, 3vw, 4rem);
+            ---fs-xxl: clamp(3rem, 4vw, 5rem);
 
             ---ad-bg: aliceblue;
         }
@@ -207,12 +209,27 @@
         }
 
         .messageboard {
-            background: linear-gradient(to left, blueviolet, rgb(182, 147, 215));
+            background: linear-gradient(to left, #f4930c, #dfc480);
             height: 50vh;
             width: 100vw;
             display: grid;
-            grid-template-columns: repeat(10, 10%);
-            grid-template-rows: repeat(10, 10%);
+            grid-template-columns: repeat(5, 10%);
+            grid-template-rows: repeat(5, 10%);
+        }
+
+        .messageboard h2 {
+            grid-row: 1 / 11;
+            grid-column: 10 / 11;
+            /* max-width: 50px; */
+            writing-mode: vertical-rl;
+            color: lightblue;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: var(---fs-xl);
+
+                       
         }
 
 
@@ -296,14 +313,14 @@
 
     <section class="messageboard">
 
-        <h2>Message Board</h2>
+        <h2>Zeg hallo tegen Nijntje</h2>
         <form id="message-form">
             <input type="text" name="username" placeholder="Your name" required>
             <textarea name="content" placeholder="Your message" required></textarea>
             <button type="submit">Post</button>
         </form>
 
-        <h2>Messages</h2>
+        <h3>Messages</h3>
         <ul id="message-list">
             <!-- Berichten worden hier geladen door JavaScript -->
         </ul>
