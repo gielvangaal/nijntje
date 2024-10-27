@@ -16,7 +16,10 @@
     <ul>
         {% for message in messages %}
             <li>
-                <strong>{{ message.username }}</strong>: {{ message.content }} <em>{{ message.created_at }}</em>
+                <strong>{{ message.username }}</strong>
+                 {{ message.content }} 
+                 <em>Datum: {{ message.formatted_date }}
+                    Tijd: {{ message.formatted_time }}</em>
             </li>
         {% empty %}
             <li>No messages yet.</li>
