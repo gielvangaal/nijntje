@@ -383,10 +383,11 @@
                 fetch('http://127.0.0.1:8000/board/api/messages/')
                     .then(response => response.json())
                     .then(data => {
+                        console.log(data);
                         messageList.innerHTML = '';
                         data.forEach(message => {
                             const listItem = document.createElement('li');
-                            listItem.innerHTML = `<strong>${message.username}</strong>: ${message.content} <em>${message.created_at}</em>`;
+                            listItem.innerHTML = `<strong>${message.username}</strong><br> ${message.content} <em><br>${message.formatted_date}</em><br>${message.formatted_time}</em>`;
                             messageList.appendChild(listItem);
                         });
                     });
