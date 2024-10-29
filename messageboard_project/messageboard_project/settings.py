@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-11_ezvc)0g=v+#e)4g^v+4q)3p^c-gh6atzyer58s!8vp+5)3v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gielvangaal.nl', 'www.gielvangaal.nl', '212.132.126.41']
 
 
 # Application definition
