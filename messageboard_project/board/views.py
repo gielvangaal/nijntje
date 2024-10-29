@@ -19,9 +19,9 @@ def message_list(request):
         return redirect('message_list')
     
     # Haal alle berichten op en formatteer de datum en tijd
-    messages = Message.objects.all().order_by('-created_at')
+    all_messages = Message.objects.all().order_by('-created_at')
     formatted_messages = []
-    for message in messages:
+    for message in all_messages:
         formatted_messages.append({
             'username': message.username,
             'content': message.content,
