@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-11_ezvc)0g=v+#e)4g^v+4q)3p^c-gh6atzyer58s!8vp+5)3v
 DEBUG = True
 
 ALLOWED_HOSTS = ['gielvangaal.nl', 'www.gielvangaal.nl', '212.132.126.41', '127.0.0.1',]
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Application definition
