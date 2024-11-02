@@ -380,7 +380,7 @@
 
             // Functie om berichten op te halen
             function fetchMessages() {
-                fetch('https://212.132.126.41:8000/board/api/messages/')
+                fetch('https://gielvangaal.nl/board/api/messages/')
                     .then(response => response.json())
                     .then(data => {
                         console.log(data);
@@ -402,7 +402,7 @@
                     content: contentInput.value,
                 };
 
-                fetch('https://212.132.126.41:8000/board/api/messages/', {
+                fetch('https://gielvangaal.nl/board/api/messages/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
