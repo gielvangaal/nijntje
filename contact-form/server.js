@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: '/var/www/gielvangaal.nl/html/nijntje/contact-form/.env' });
 
 console.log(process.env.EMAIL_USER);
 console.log(process.env.EMAIL_PASS);
