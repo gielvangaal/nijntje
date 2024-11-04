@@ -35,7 +35,7 @@ app.post("/send", async (req, res) => {
     const mailOptions = {
         from: req.body.email, // Afzender e-mailadres
         to: process.env.EMAIL_USER, // Jouw e-mailadres
-        subject: "Nieuw bericht van contactformulier",
+        subject: "Nijntje mail",
         text: req.body.message // Berichtinhoud
     };
 
