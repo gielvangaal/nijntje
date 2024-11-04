@@ -347,7 +347,7 @@
 
     <section>
         <h1>Neem contact op</h1>
-        <form id="contactForm" action="send" method="POST">
+        <form action="send" method="POST">
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" required>
             <br>
@@ -356,7 +356,7 @@
             <br>
             <button type="submit">Verstuur</button>
         </form>
-        <div id="responseMessage"></div>
+        
     </section>
 
     <script>
@@ -451,28 +451,6 @@
             // Initialiseer de berichten bij het laden van de pagina
             fetchMessages();
         });
-
-        // API CONTACTFORM
-        document.getElementById("contactForm").addEventListener("submit", async function (event) {
-            event.preventDefault(); // Voorkom dat het formulier op de standaard manier wordt verzonden
-
-            const formData = new FormData(this);
-            const responseDiv = document.getElementById("responseMessage");
-
-            try {
-                const response = await fetch(this.action, {
-                    method: "POST",
-                    body: formData,
-                });
-
-                const result = await response.text();
-                responseDiv.innerHTML = result; // Toon het antwoord in de div
-            } catch (error) {
-                console.error("Er ging iets mis:", error);
-                responseDiv.innerHTML = "Fout bij het verzenden van het bericht.";
-            }
-        });
-
 
     </script>
 </body>
