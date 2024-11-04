@@ -1,5 +1,9 @@
 require('dotenv').config();
 
+console.log(process.env.EMAIL_USER);
+console.log(process.env.EMAIL_PASS);
+
+
 const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
