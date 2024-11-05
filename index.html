@@ -119,17 +119,20 @@
             grid-row: 1 / 10;
             grid-column: 1 / 6;
             padding: 10px 0;
-            /* background-color: var(---ad-bg);  */
+            background-color: var(---ad-bg); 
             padding-left: 5%;
             overflow: hidden;
             display: flex;
+            align-items: center;
             justify-content: center;
+            
         }
 
         .nijntje-photo img {
             height: 100%;
             width: auto;
             filter: grayscale(100%) brightness(1.1);
+            
         }
 
         #toggleButton {
@@ -204,7 +207,7 @@
         }
 
         #photobook-container div img {
-            width: 170%;
+            width: 200%;
             object-fit: contain;
             filter: grayscale(100%) brightness(1.1);
             opacity: 0.8;
@@ -431,7 +434,7 @@
             if (div.classList.contains("hidden")) {
                 div.classList.remove("hidden");
                 div.classList.add("grid");
-                header.textContent = "Sluit venster";
+                header.textContent = "Minder foto's van Nijntje";
             }
 
             else {
