@@ -48,7 +48,7 @@
 
         .nav {
             margin: 10px 25px;
-            
+
         }
 
         #menu {
@@ -62,8 +62,8 @@
             z-index: 4;
             padding-top: 30px;
             mix-blend-mode: difference;
-            color: white;  
-            border-right: 3px solid white; 
+            color: white;
+            border-right: 3px solid white;
             border-bottom: 3px solid white;
         }
 
@@ -74,7 +74,8 @@
 
         #menu ul li {
             list-style: none;
-            padding: 3px 0; margin: 0;
+            padding: 3px 0;
+            margin: 0;
         }
 
 
@@ -259,43 +260,78 @@
 
         .messageboard {
             background: linear-gradient(to left, #f4930c, #dfc480);
-            height: 50vh;
+            height: 100vh;
             width: 100vw;
             display: grid;
-            grid-template-columns: repeat(5, 10%);
-            grid-template-rows: repeat(5, 10%);
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
         }
 
-        .messageboard h2 {
+
+        .messageboard .left {
+            grid-row: 1 / 11;
+            grid-column: 1 / 2;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            margin: 0;
+            padding: 0;
+            color: rgb(232, 232, 232);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: var(---fs-xl);
+            font-weight: 700;
+        }
+
+
+        .messageboard .right {
             grid-row: 1 / 11;
             grid-column: 10 / 11;
-            /* max-width: 50px; */
             writing-mode: vertical-rl;
+            margin: 0;
+            padding: 2vw;
             color: lightblue;
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: var(---fs-xl);
+            font-weight: 700;
         }
 
         #message-list {
-            grid-row: 2 / 11;
-            grid-column: 6 / 10;
-            /* background-color: var(---ad-bg); */
+            grid-row: 2 / 10;
+            grid-column: 2 / 10;
+            background-color: var(---ad-bg);
             padding: 10px;
             overflow: scroll;
+            height: 100%;
+            margin: 0;
+            text-align: center;
+        }
+
+
+        #message-list ul li {
+            list-style: none;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         #message-form {
-            grid-row: 2 / 6;
-            grid-column: 1 / 6;
-            /* background-color: var(---ad-bg); */
-            display: flex;
+            grid-row: 2 / 10;
+            grid-column: 2 / 10;
+            background-color: var(---ad-bg);
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 10px;
+            display: none;
+            z-index: 1;
+            height: 100%;
         }
 
 
@@ -423,7 +459,8 @@
 
     <section class="messageboard">
 
-        <h2>Zeg hallo tegen Nijntje</h2>
+        <button class="toggleMessageForm left">Zeg hallo tegen Nijntje!</button>
+        <button class="toggleMessageForm right">Zeg hallo tegen Nijntje!</button>
 
         <form id="message-form">
             <input type="text" name="username" placeholder="Your name" required>
@@ -511,9 +548,15 @@
                     .then(data => {
                         console.log(data);
                         messageList.innerHTML = '';
+                        data.reverse();
                         data.forEach(message => {
                             const listItem = document.createElement('li');
                             listItem.innerHTML = `<strong>${message.username}</strong> - ${message.formatted_date} - ${message.formatted_time}<br> ${message.content}`;
+
+                            listItem.style.listStyle = 'none';
+                            listItem.style.margin = '40px 0';
+                            listItem.style.fontSize = '1.5rem';
+
                             messageList.appendChild(listItem);
                         });
                     });
@@ -590,6 +633,21 @@
                 menu.style.display = "none";
             }
         };
+
+        // TOGGLE MESSAGE FORM
+        // TOGGLE MESSAGE FORM
+        const buttons = document.getElementsByClassName("toggleMessageForm");
+        Array.from(buttons).forEach(button => {
+            button.addEventListener("click", function () {
+                const messageform = document.getElementById("message-form");
+                if (messageform.style.display === "none" || messageform.style.display === "") {
+                    messageform.style.display = "flex";
+                } else {
+                    messageform.style.display = "none";
+                }
+            });
+        });
+
 
 
 
