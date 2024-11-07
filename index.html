@@ -14,6 +14,7 @@
             ---fs-large: clamp(1.5rem, 2vw, 2.5rem);
             ---fs-xl: clamp(2rem, 3vw, 4rem);
             ---fs-xxl: clamp(3rem, 4vw, 5rem);
+            ---fs-jumbo: clamp(6rem, 7vw, 8rem);
 
             ---ad-bg: aliceblue;
         }
@@ -143,7 +144,7 @@
             padding: 0;
             margin: 0;
             mix-blend-mode: difference;
-            color: white;
+            color:  #eca746;
         }
 
         .photo-section {
@@ -186,7 +187,8 @@
             font-size: var(---fs-large);
             z-index: 1;
             mix-blend-mode: difference;
-            color: #ffc0cb;
+            color:  #eca746;
+            /* color: #ffc0cb; */
         }
 
         #toggleButton:hover {
@@ -304,11 +306,15 @@
             grid-row: 2 / 10;
             grid-column: 2 / 10;
             background-color: rgb(255, 255, 255, 0.1);
-            padding: 10px;
+            /* padding: 10px; */
             overflow: scroll;
             height: 100%;
-            margin: 0;
+            margin: 0; 
             text-align: center;
+        }
+
+        #message-list ul {
+            padding: 0; margin: 0;
         }
 
         #message-list ul li {
@@ -338,15 +344,56 @@
             grid-template-rows: repeat(10, 10%);
         }
 
-        #message-form #closeMessageForm {
+        #message-form .message-form-x {
             grid-row: 1 / 2;
             grid-column: 10 / 11;
+            align-self: start;
+            justify-self: end;
+            margin: 15px;
         }
 
-        #message-form button {
-            grid-row: 9 / 10;
-            grid-column: 5 / 6;
-            
+        #message-form .message-form-post {
+            grid-row: 10 / 11;
+            grid-column: 5 / 7;
+            background: linear-gradient(to left, #eca746, #ddbc69);
+            color: white;
+            font-weight: 700;
+            margin: 15px;
+        }
+
+        #message-form input {
+            grid-row: 2 / 3;
+            grid-column: 2 / 10;
+            margin-bottom: 15px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: var(---fs-large);
+        }
+
+        #message-form input::placeholder {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: var(---fs-large);
+            text-align: center;
+            opacity: 0.15;
+        }
+
+        #message-form textarea {
+            grid-row: 3 / 10;
+            grid-column: 2 / 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: var(---fs-large);
+            resize: none;
+            overflow: scroll;
+        }
+
+        #message-form textarea::placeholder {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: var(---fs-jumbo);
+            text-align: center;
+            padding-top: 20%;
+            opacity: 0.15;
         }
 
 
@@ -376,18 +423,18 @@
             }
 
             .messageboard .left {
-            grid-row: 1 / 2;
-            grid-column: 1 / 11;
-            writing-mode: unset;
-            transform: rotate(0deg);
-            font-size: var(---fs-large);
-            padding: 10px;
-        }
+                grid-row: 1 / 2;
+                grid-column: 1 / 11;
+                writing-mode: unset;
+                transform: rotate(0deg);
+                font-size: var(---fs-large);
+                padding: 10px;
+            }
 
 
-        .messageboard .right {
-            display: none;
-        }
+            .messageboard .right {
+                display: none;
+            }
 
             .message-item {
                 font-size: 1rem;
@@ -418,7 +465,6 @@
             <li>Contact</li>
         </ul>
     </div>
-
 
     <section class="hero-section">
 
@@ -496,11 +542,13 @@
         <button class="toggleMessageForm right">Zeg hallo tegen Nijntje</button>
 
         <form id="message-form">
-            <button id="closeMessageForm">x</button>
-            <input type="text" name="username" placeholder="Your name" required>
-            <textarea name="content" placeholder="Your message" required></textarea>
-            <!-- <button type="submit" id="closeMessageForm">Post</button> -->
+            <button class="closeMessageForm message-form-x">x</button>
+            <input type="text" name="username" placeholder="Naam" required>
+            <textarea name="content" placeholder="Zeg hallo" required maxlength="200"></textarea>
+            <button type="submit" class="closeMessageForm message-form-post">Post</button>
         </form>
+
+        
 
 
         <ul id="message-list">
@@ -667,8 +715,8 @@
         };
 
         // TOGGLE MESSAGE FORM
-        const buttons = document.getElementsByClassName("toggleMessageForm");
-        Array.from(buttons).forEach(button => {
+        const buttonsToggleMessageForm = document.getElementsByClassName("toggleMessageForm");
+        Array.from(buttonsToggleMessageForm).forEach(button => {
             button.addEventListener("click", function () {
                 const messageform = document.getElementById("message-form");
                 if (messageform.style.display === "none" || messageform.style.display === "") {
@@ -680,12 +728,13 @@
         });
 
         // CLOSE MESSAGE FORM
-        document.getElementById("closeMessageForm").addEventListener("click", function () {
-            const messageform = document.getElementById("message-form");
-            messageform.style.display = "none";
+        const buttonsCloseMessageForm = document.getElementsByClassName("closeMessageForm");
+        Array.from(buttonsCloseMessageForm).forEach(button => {
+            button.addEventListener("click", function () {
+                const messageform = document.getElementById("message-form");
+                messageform.style.display = "none";
+            });
         });
-
-
 
 
     </script>
