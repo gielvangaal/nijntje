@@ -26,6 +26,11 @@
             box-sizing: border-box;
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
         button {
             background: none;
             border: none;
@@ -54,19 +59,30 @@
 
         #menu {
             height: auto;
-            width: 150px;
+            /* width: 150px; */
             display: none;
             position: fixed;
             align-items: start;
             justify-content: start;
-            backdrop-filter: blur(3px);
+            /* backdrop-filter: blur(3px); */
             z-index: 4;
             padding-top: 30px;
             mix-blend-mode: difference;
             color: white;
-            border-right: 3px solid white;
-            border-bottom: 3px solid white;
+            /* border-right: 3px solid white;
+            border-bottom: 3px solid white; */
         }
+
+        #menu a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        #menu a:hover {
+            color: #ffc0cb;
+            font-weight: 600;
+        }
+        
 
         #menu ul {
             margin: 0;
@@ -77,8 +93,9 @@
             list-style: none;
             padding: 3px 0;
             margin: 0;
+            border-bottom: 1px solid white;
+            width: 125px;
         }
-
 
         .hero-section {
             background: linear-gradient(to right, lightblue, rgb(232, 232, 232));
@@ -144,7 +161,7 @@
             padding: 0;
             margin: 0;
             mix-blend-mode: difference;
-            color: #eca746;
+            color: #ffc0cb;
         }
 
         .photo-section {
@@ -187,8 +204,7 @@
             font-size: var(---fs-large);
             z-index: 1;
             mix-blend-mode: difference;
-            color: #eca746;
-            /* color: #ffc0cb; */
+            color: #ffc0cb;
         }
 
         #toggleButton:hover {
@@ -350,16 +366,16 @@
             grid-column: 10 / 11;
             align-self: start;
             justify-self: end;
-            margin: 15px;
+            margin: 10px 15px 0 0;
         }
 
         #message-form .message-form-post {
             grid-row: 10 / 11;
-            grid-column: 5 / 7;
-            background: linear-gradient(to left, #eca746, #ddbc69);
-            color: white;
+            grid-column: 4 / 8;
+            background-color: rgb(255, 255, 255, 0.3);
+            color: black;
             font-weight: 700;
-            margin: 15px;
+            margin: 15px 100px;
         }
 
         #message-form input {
@@ -393,7 +409,7 @@
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-size: var(---fs-jumbo);
             text-align: center;
-            padding-top: 20%;
+            padding-top: 20vh;
             opacity: 0.15;
         }
 
@@ -432,9 +448,12 @@
                 padding: 10px;
             }
 
-
             .messageboard .right {
                 display: none;
+            }
+
+            #message-form .message-form-post {
+                margin: 15px;
             }
 
             .message-item {
@@ -443,9 +462,9 @@
 
             #message-form textarea::placeholder {
                 font-size: var(---fs-large);
+                /* padding-top: 80%; */
             }
         }
-
     </style>
 </head>
 
@@ -464,10 +483,10 @@
 
         <ul>
             <li><a href="#home">Home</a></li>
-            <li>Foto's</li>
+            <li><a href="#foto">Foto's</a></li>
             <li><a href="#messageboard">Messageboard</a></li>
-            <li>Over Nijntje</li>
-            <li>Contact</li>
+            <li><a href="#about">Over Nijntje</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 
@@ -744,15 +763,15 @@
         const CloseMessageFormPost = document.getElementById("closeMessageFormPost");
 
         CloseMessageFormPost.addEventListener("click", function () {
-                const messageForm = document.getElementById("message-form");
+            const messageForm = document.getElementById("message-form");
 
-                if (messageForm.checkValidity()) {
-                    messageForm.style.display = "none";
-                } else {
-                    messageForm.reportValidity();
-                }
-            });
-        
+            if (messageForm.checkValidity()) {
+                messageForm.style.display = "none";
+            } else {
+                messageForm.reportValidity();
+            }
+        });
+
 
 
 
