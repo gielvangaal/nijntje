@@ -144,7 +144,7 @@
             padding: 0;
             margin: 0;
             mix-blend-mode: difference;
-            color:  #eca746;
+            color: #eca746;
         }
 
         .photo-section {
@@ -187,7 +187,7 @@
             font-size: var(---fs-large);
             z-index: 1;
             mix-blend-mode: difference;
-            color:  #eca746;
+            color: #eca746;
             /* color: #ffc0cb; */
         }
 
@@ -309,12 +309,13 @@
             /* padding: 10px; */
             overflow: scroll;
             height: 100%;
-            margin: 0; 
+            margin: 0;
             text-align: center;
         }
 
         #message-list ul {
-            padding: 0; margin: 0;
+            padding: 0;
+            margin: 0;
         }
 
         #message-list ul li {
@@ -440,7 +441,11 @@
                 font-size: 1rem;
             }
 
+            #message-form textarea::placeholder {
+                font-size: var(---fs-large);
+            }
         }
+
     </style>
 </head>
 
@@ -542,13 +547,13 @@
         <button class="toggleMessageForm right">Zeg hallo tegen Nijntje</button>
 
         <form id="message-form">
-            <button class="closeMessageForm message-form-x">x</button>
+            <button id="closeMessageFormX" class="message-form-x">x</button>
             <input type="text" name="username" placeholder="Naam" required>
             <textarea name="content" placeholder="Zeg hallo" required maxlength="200"></textarea>
-            <button type="submit" class="closeMessageForm message-form-post">Post</button>
+            <button type="submit" id="closeMessageFormPost" class="message-form-post">Post</button>
         </form>
 
-        
+
 
 
         <ul id="message-list">
@@ -727,14 +732,28 @@
             });
         });
 
-        // CLOSE MESSAGE FORM
-        const buttonsCloseMessageForm = document.getElementsByClassName("closeMessageForm");
-        Array.from(buttonsCloseMessageForm).forEach(button => {
-            button.addEventListener("click", function () {
-                const messageform = document.getElementById("message-form");
-                messageform.style.display = "none";
-            });
+        // CLOSE MESSAGE FORM X
+        const closeMessageFormX = document.getElementById("closeMessageFormX");
+
+        closeMessageFormX.addEventListener("click", function () {
+            const messageForm = document.getElementById("message-form");
+            messageForm.style.display = "none";
         });
+
+        // CLOSE MESSAGE FORM POST
+        const CloseMessageFormPost = document.getElementById("closeMessageFormPost");
+
+        CloseMessageFormPost.addEventListener("click", function () {
+                const messageForm = document.getElementById("message-form");
+
+                if (messageForm.checkValidity()) {
+                    messageForm.style.display = "none";
+                } else {
+                    messageForm.reportValidity();
+                }
+            });
+        
+
 
 
     </script>
