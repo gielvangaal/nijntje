@@ -82,7 +82,7 @@
             color: #ffc0cb;
             font-weight: 600;
         }
-        
+
 
         #menu ul {
             margin: 0;
@@ -123,6 +123,127 @@
             max-width: 100%;
             max-height: 100%;
             filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+            cursor: pointer;
+        }
+
+        #nijntje-prrr {
+            display: none;
+            grid-row: 3 / 4;
+            grid-column: 7 / 8;
+            z-index: 2;
+            margin-left: 20%;
+            font-size: var(---fs-xxl);
+            animation: shakeFade 3s forwards;
+        }
+
+        @keyframes shakeFade {
+            0% {
+                transform: rotate(5deg);
+                opacity: 1;
+            }
+
+            2% {
+                transform: rotate(-5deg);
+            }
+
+            4% {
+                transform: rotate(5deg);
+            }
+
+            6% {
+                transform: rotate(-5deg);
+            }
+
+            8% {
+                transform: rotate(5deg);
+            }
+
+            10% {
+                transform: rotate(-5deg);
+            }
+
+            15% {
+                transform: rotate(5deg);
+            }
+
+            20% {
+                transform: rotate(-5deg);
+            }
+
+            25% {
+                transform: rotate(5deg);
+            }
+
+            30% {
+                transform: rotate(-5deg);
+            }
+
+            35% {
+                transform: rotate(5deg);
+            }
+
+            40% {
+                transform: rotate(-5deg);
+            }
+
+            45% {
+                transform: rotate(5deg);
+            }
+
+            50% {
+                transform: rotate(-5deg);
+            }
+
+            55% {
+                transform: rotate(5deg);
+            }
+
+            60% {
+                transform: rotate(-5deg);
+            }
+
+            65% {
+                transform: rotate(5deg);
+            }
+
+            70% {
+                transform: rotate(-5deg);
+            }
+
+            75% {
+                transform: rotate(5deg);
+            }
+
+            80% {
+                transform: rotate(-5deg);
+            }
+
+            85% {
+                transform: rotate(5deg);
+            }
+
+            90% {
+                transform: rotate(-5deg);
+            }
+
+            95% {
+                transform: rotate(5deg);
+            }
+
+            100% {
+                transform: rotate(0);
+                opacity: 0;
+            }
+        }
+
+        #stopNijntjePrrr {
+            grid-row: 3 / 4;
+            grid-column: 7 / 8;
+            display: none;
+            z-index: 2;
+            font-size: var(---fs-large);
+            padding: 40px 0 0 40px;
+            cursor: pointer;
         }
 
         .p-left {
@@ -495,8 +616,10 @@
         <p class="p-left">Swsed3dfert6RDDDD-0M,MOI</p>
 
         <div class="hero-image">
-            <img src="./recourses/images/nijntjepng.png">
+            <img id="playNijntjePrrr" src="./recources/images/nijntjepng.png">
         </div>
+        <p id="nijntje-prrr">Prrrrr</p>
+        <p id="stopNijntjePrrr">(Stop)</p>
         <h1>Nijntie Nijn problems but a purrr ain't one</h1>
         <p class="p-right">//////////////;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </p>
     </section>
@@ -504,7 +627,7 @@
     <section class="photo-section">
 
         <div class="nijntje-photo">
-            <img src="./recourses/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">
+            <img src="./recources/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">
         </div>
 
         <h2 id="toggleButton">Meer foto's van Nijntje</h2>
@@ -514,46 +637,46 @@
             <!-- <h2 class="scroll-me">Scroll me &#8597;</h2> -->
 
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-17.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-17.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-18.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-18.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-19.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-19.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-17.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-17.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-18.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-18.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-19.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-19.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
             </div>
             <div>
-                <img src="./recourses/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
             </div>
         </div>
 
@@ -599,6 +722,49 @@
 
     <script>
 
+        // NIJNTJE PRRR
+        // Audio-object
+        const audio = new Audio('/nijntje/recources/audio/nijntje-prrr.mp3');
+
+        // Event listener voor het afspelen van het audio- en bericht
+        document.getElementById('playNijntjePrrr').addEventListener('click', showNijntjePrrr);
+
+        function showNijntjePrrr() {
+            // Speel het audio-bestand af
+            audio.play();
+
+            // Toon het bericht
+            const message = document.getElementById('nijntje-prrr');
+            message.style.display = 'flex';
+
+            // Verberg het bericht na 5 seconden
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 5000);
+
+            // Toon de stop-knop na 5 seconden en verberg deze na 10 seconden
+            const stopNijntjePrrr = document.getElementById('stopNijntjePrrr');
+            setTimeout(() => {
+                stopNijntjePrrr.style.display = 'flex';
+
+                // Verberg de knop na 10 seconden automatisch
+                setTimeout(() => {
+                    stopNijntjePrrr.style.display = 'none';
+                }, 5000);
+
+            }, 5000);
+        }
+
+        // Functie om het geluid te stoppen
+        function stopSound() {
+            audio.pause();
+            audio.currentTime = 0;
+            document.getElementById('stopNijntjePrrr').style.display = 'none';
+        }
+
+        // Event listener voor het stoppen van het geluid
+        document.getElementById('stopNijntjePrrr').addEventListener('click', stopSound);
+
         // SWITCH IMAGE // 
         const images = document.querySelectorAll("#photobook-container img");
         const displayContainer = document.querySelector(".nijntje-photo");
@@ -635,7 +801,7 @@
                 div.classList.remove("grid");
                 div.classList.add("hidden");
                 header.textContent = "Meer foto's van Nijntje";
-                document.querySelector(".nijntje-photo").innerHTML = '<img src="./recourses/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">';
+                document.querySelector(".nijntje-photo").innerHTML = '<img src="./recources/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">';
                 console.log(orginal);
             }
         });
