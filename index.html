@@ -97,6 +97,17 @@
             width: 125px;
         }
 
+        #menu ul li:nth-last-child(2) {
+            margin-top: 15px;
+            font-size: smaller;
+            font-style: italic;
+        }
+
+        #menu ul li:last-child {
+            font-size: smaller;
+            font-style: italic;
+        }
+
         .hero-section {
             background: linear-gradient(to right, lightblue, rgb(232, 232, 232));
             height: 100vh;
@@ -237,12 +248,12 @@
         }
 
         #stopNijntjePrrr {
-            grid-row: 3 / 4;
+            grid-row: 4 / 5;
             grid-column: 7 / 8;
             display: none;
             z-index: 2;
             font-size: var(---fs-medium);
-            padding: 40px 0 0 40px;
+            padding: 0 0 0 40px;
             cursor: pointer;
             font-style: italic;
         }
@@ -258,6 +269,7 @@
             width: 100%;
             height: 100%;
             word-wrap: break-word;
+            cursor: pointer;
         }
 
         .p-right {
@@ -271,6 +283,7 @@
             width: 100%;
             height: 100%;
             word-wrap: break-word;
+            cursor: pointer;
         }
 
         h1 {
@@ -610,6 +623,9 @@
             <li><a href="#messageboard">Messageboard</a></li>
             <li><a href="#about">Over Nijntje</a></li>
             <li><a href="#contact">Contact</a></li>
+
+            <li><a href="">Functioneel ontwerp</a></li>
+            <li><a id="toggleObserver">Stop auto-scroll</a></li>
         </ul>
     </div>
 
@@ -636,7 +652,6 @@
 
 
         <div id="photobook-container" class="hidden">
-            <!-- <h2 class="scroll-me">Scroll me &#8597;</h2> -->
 
             <div>
                 <img src="./recources/images/PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje">
@@ -947,7 +962,9 @@
             }
         });
 
-        // SCROLL INTO VIEW
+        // OBSERVER
+        // Selecteer de knop
+        const toggleButton = document.getElementById('toggleObserver');
 
         // Selecteer alle secties
         const sections = document.querySelectorAll('section');
@@ -972,8 +989,60 @@
             });
         }, observerOptions);
 
-        // Observeer elke sectie
+        // Variabele om de staat van de observer bij te houden
+        let observerActive = true;
+
+        // Functie om de observer aan of uit te zetten
+        function toggleObserver() {
+            if (observerActive) {
+                // Stop de observer
+                sections.forEach(section => observer.unobserve(section));
+                toggleButton.textContent = 'Stop auto-scroll'; // Verander de knoptekst
+            } else {
+                // Start de observer
+                sections.forEach(section => observer.observe(section));
+                toggleButton.textContent = 'Start auto-scroll'; // Verander de knoptekst
+            }
+            observerActive = !observerActive; // Wissel de staat van de observer
+        }
+
+        // Start de observer meteen wanneer de pagina wordt geladen
         sections.forEach(section => observer.observe(section));
+
+        // Voeg de onclick handler toe aan de knop
+        toggleButton.addEventListener('click', toggleObserver);
+
+
+        // DIT HAD NIJNTJE ER ZELF OVER TE ZEGGEN
+        // Selecteer zowel p-right als p-left en zet ze in een array
+        const elements = [
+            document.querySelector('.p-right'),
+            document.querySelector('.p-left')
+        ];
+
+        // Bewaar de oorspronkelijke tekst voor elk element
+        const originalTexts = elements.map(element => element.innerHTML);
+
+        function changeText(element, originalText) {
+            // Verander de tekst van het element
+            element.innerHTML = '(Dit had Nijntje er zelf over te zeggen!)';
+            element.style.fontSize = 'smaller';
+            element.style.fontStyle = 'italic';
+
+            // Zet de tekst na 3 seconden terug naar de oorspronkelijke tekst
+            setTimeout(function () {
+                element.innerHTML = originalText;
+                element.style.fontSize = 'initial';
+                element.style.fontStyle = 'normal';
+            }, 3000); // 3000 milliseconden = 3 seconden
+        }
+
+        // Voeg de event listeners toe voor elk element in de array
+        elements.forEach((element, index) => {
+            element.addEventListener('click', function () {
+                changeText(element, originalTexts[index]);
+            });
+        });
 
 
 
