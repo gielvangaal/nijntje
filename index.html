@@ -241,9 +241,10 @@
             grid-column: 7 / 8;
             display: none;
             z-index: 2;
-            font-size: var(---fs-large);
+            font-size: var(---fs-medium);
             padding: 40px 0 0 40px;
             cursor: pointer;
+            font-style: italic;
         }
 
         .p-left {
@@ -311,6 +312,7 @@
             height: 100%;
             width: auto;
             filter: grayscale(100%) brightness(1.1);
+            padding: 15px;
 
         }
 
@@ -604,14 +606,14 @@
 
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#foto">Foto's</a></li>
+            <li><a href="#fotoboek">Foto's</a></li>
             <li><a href="#messageboard">Messageboard</a></li>
             <li><a href="#about">Over Nijntje</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 
-    <section class="hero-section">
+    <section class="hero-section" id="home">
 
         <p class="p-left">Swsed3dfert6RDDDD-0M,MOI</p>
 
@@ -624,7 +626,7 @@
         <p class="p-right">//////////////;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </p>
     </section>
 
-    <section class="photo-section">
+    <section class="photo-section" id="fotoboek">
 
         <div class="nijntje-photo">
             <img src="./recources/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">
@@ -904,6 +906,13 @@
             }
         };
 
+        // CLOSE MENU
+        document.querySelectorAll("#menu a").forEach((link) => {
+            link.onclick = function () {
+                document.getElementById("menu").style.display = "none";
+            };
+        });
+
         // TOGGLE MESSAGE FORM
         const buttonsToggleMessageForm = document.getElementsByClassName("toggleMessageForm");
         Array.from(buttonsToggleMessageForm).forEach(button => {
@@ -937,6 +946,34 @@
                 messageForm.reportValidity();
             }
         });
+
+        // SCROLL INTO VIEW
+
+        // Selecteer alle secties
+        const sections = document.querySelectorAll('section');
+
+        // Opties voor de IntersectionObserver
+        const observerOptions = {
+            root: null,             // viewport als root
+            rootMargin: '0px',
+            threshold: 0.4          // activeer wanneer 40% zichtbaar is
+        };
+
+        // Maak de IntersectionObserver aan
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Scroll de sectie naar het midden van het scherm
+                    entry.target.scrollIntoView({
+                        behavior: 'smooth', // soepele scroll-animatie
+                        block: 'center'     // centreer de sectie
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observeer elke sectie
+        sections.forEach(section => observer.observe(section));
 
 
 
