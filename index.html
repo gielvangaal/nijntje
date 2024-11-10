@@ -1,0 +1,1142 @@
+<!-- 1 : toegevoed door Nijntje, later weer toevoegen maar voor devops even weg -->
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nijntje</title>
+
+    <style>
+        :root {
+            ---fs-small: ;
+            ---fs-medium: clamp(0.75rem, 1vw, 2rem);
+            ---fs-large: clamp(1.5rem, 2vw, 2.5rem);
+            ---fs-xl: clamp(2rem, 3vw, 4rem);
+            ---fs-xxl: clamp(3rem, 4vw, 5rem);
+            ---fs-jumbo: clamp(6rem, 7vw, 8rem);
+
+            ---ad-bg: aliceblue;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+            outline: none;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            mix-blend-mode: difference;
+            color: white;
+            z-index: 5;
+        }
+
+        .nav {
+            margin: 10px 25px;
+
+        }
+
+        #menu {
+            height: auto;
+            /* width: 150px; */
+            display: none;
+            position: fixed;
+            align-items: start;
+            justify-content: start;
+            /* backdrop-filter: blur(3px); */
+            z-index: 4;
+            padding-top: 30px;
+            mix-blend-mode: difference;
+            color: white;
+            /* border-right: 3px solid white;
+            border-bottom: 3px solid white; */
+        }
+
+        #menu a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        #menu a:hover {
+            color: #ffc0cb;
+            font-weight: 600;
+        }
+
+
+        #menu ul {
+            margin: 0;
+            padding: 15px 0 15px 25px;
+        }
+
+        #menu ul li {
+            list-style: none;
+            padding: 3px 0;
+            margin: 0;
+            border-bottom: 1px solid white;
+            width: 125px;
+        }
+
+        #menu ul li:nth-last-child(2) {
+            margin-top: 15px;
+            font-size: smaller;
+            font-style: italic;
+        }
+
+        #menu ul li:last-child {
+            font-size: smaller;
+            font-style: italic;
+        }
+
+        .hero-section {
+            background: linear-gradient(to right, lightblue, rgb(232, 232, 232));
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
+        }
+
+        .hero-image {
+            /* background: linear-gradient(to right, blueviolet, rgb(182, 147, 215)); */
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+            z-index: 1;
+            grid-row: 2 / 10;
+            grid-column: 4 / 8;
+        }
+
+        .hero-image img {
+            width: auto;
+            max-width: 100%;
+            max-height: 100%;
+            filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+            cursor: pointer;
+        }
+
+        #nijntje-prrr {
+            display: none;
+            grid-row: 3 / 4;
+            grid-column: 7 / 8;
+            z-index: 2;
+            margin-left: 20%;
+            font-size: var(---fs-xxl);
+            animation: shakeFade 3s forwards;
+        }
+
+        @keyframes shakeFade {
+            0% {
+                transform: rotate(5deg);
+                opacity: 1;
+            }
+
+            2% {
+                transform: rotate(-5deg);
+            }
+
+            4% {
+                transform: rotate(5deg);
+            }
+
+            6% {
+                transform: rotate(-5deg);
+            }
+
+            8% {
+                transform: rotate(5deg);
+            }
+
+            10% {
+                transform: rotate(-5deg);
+            }
+
+            15% {
+                transform: rotate(5deg);
+            }
+
+            20% {
+                transform: rotate(-5deg);
+            }
+
+            25% {
+                transform: rotate(5deg);
+            }
+
+            30% {
+                transform: rotate(-5deg);
+            }
+
+            35% {
+                transform: rotate(5deg);
+            }
+
+            40% {
+                transform: rotate(-5deg);
+            }
+
+            45% {
+                transform: rotate(5deg);
+            }
+
+            50% {
+                transform: rotate(-5deg);
+            }
+
+            55% {
+                transform: rotate(5deg);
+            }
+
+            60% {
+                transform: rotate(-5deg);
+            }
+
+            65% {
+                transform: rotate(5deg);
+            }
+
+            70% {
+                transform: rotate(-5deg);
+            }
+
+            75% {
+                transform: rotate(5deg);
+            }
+
+            80% {
+                transform: rotate(-5deg);
+            }
+
+            85% {
+                transform: rotate(5deg);
+            }
+
+            90% {
+                transform: rotate(-5deg);
+            }
+
+            95% {
+                transform: rotate(5deg);
+            }
+
+            100% {
+                transform: rotate(0);
+                opacity: 0;
+            }
+        }
+
+        #stopNijntjePrrr {
+            grid-row: 4 / 5;
+            grid-column: 7 / 8;
+            display: none;
+            z-index: 2;
+            font-size: var(---fs-medium);
+            padding: 0 0 0 40px;
+            cursor: pointer;
+            font-style: italic;
+        }
+
+        .p-left {
+            box-sizing: border-box;
+            font-size: var(---fs-medium);
+            grid-row: 5 / 6;
+            grid-column: 1 / 2;
+            /* background-color: aliceblue; */
+            margin: 0;
+            padding: 0 0 0 10px;
+            width: 100%;
+            height: 100%;
+            word-wrap: break-word;
+            cursor: pointer;
+        }
+
+        .p-right {
+            box-sizing: border-box;
+            font-size: var(---fs-medium);
+            grid-row: 5 / 6;
+            grid-column: 10 / 11;
+            /* background-color: aliceblue; */
+            margin: 0;
+            padding: 0 10px 0 0;
+            width: 100%;
+            height: 100%;
+            word-wrap: break-word;
+            cursor: pointer;
+        }
+
+        h1 {
+            grid-row: 7 / 9;
+            grid-column: 6 / 10;
+            width: 100%;
+            height: 100%;
+            font-size: clamp(2rem, 5vw, 6rem);
+            z-index: 2;
+            padding: 0;
+            margin: 0;
+            mix-blend-mode: difference;
+            color: #ffc0cb;
+        }
+
+        .photo-section {
+            background: linear-gradient(to right, lightblue, rgb(232, 232, 232));
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
+        }
+
+        .nijntje-photo {
+            grid-row: 1 / 10;
+            grid-column: 1 / 6;
+            padding: 10px 0;
+            /* background-color: var(---ad-bg);  */
+            padding-left: 5%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .nijntje-photo img {
+            height: 100%;
+            width: auto;
+            filter: grayscale(100%) brightness(1.1);
+            padding: 15px;
+
+        }
+
+        #toggleButton {
+            grid-row: 6 / 8;
+            grid-column: 5 / 7;
+            /* background-color: var(---ad-bg); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: var(---fs-large);
+            z-index: 1;
+            mix-blend-mode: difference;
+            color: #ffc0cb;
+        }
+
+        #toggleButton:hover {
+            color: whitesmoke;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeIn 0.3s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* 
+        h2.scroll-me {
+            text-align: center;
+            
+            top: 0;
+            justify-self: center;
+            margin: 50px 0 0;
+            font-size: var(---fs-small);
+        } */
+
+        #photobook-container {
+            grid-row: 1 / 11;
+            grid-column: 6 / 12;
+            background-color: rgb(232, 232, 232);
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-rows: auto;
+            gap: 10px;
+            overflow: scroll;
+            margin: 50px 30px 25px 50px;
+            padding: 10px;
+        }
+
+        #photobook-container.hidden {
+            display: none;
+        }
+
+        #photobook-container.grid {
+            display: grid;
+        }
+
+        #photobook-container div {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #photobook-container div img {
+            width: 200%;
+            object-fit: contain;
+            filter: grayscale(100%) brightness(1.1);
+            opacity: 0.8;
+        }
+
+        #photobook-container img:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .messageboard {
+            background: linear-gradient(to left, #f4930c, #dfc480);
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
+        }
+
+
+        .messageboard .left {
+            grid-row: 1 / 11;
+            grid-column: 1 / 2;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            margin: 0;
+            padding: 0;
+            color: rgb(232, 232, 232);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: var(---fs-xl);
+            font-weight: 700;
+        }
+
+
+        .messageboard .right {
+            grid-row: 1 / 11;
+            grid-column: 10 / 11;
+            writing-mode: vertical-rl;
+            margin: 0;
+            padding: 0;
+            color: lightblue;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: var(---fs-xl);
+            font-weight: 700;
+        }
+
+        #message-list {
+            grid-row: 2 / 10;
+            grid-column: 2 / 10;
+            background-color: rgb(255, 255, 255, 0.1);
+            /* padding: 10px; */
+            overflow: scroll;
+            height: 100%;
+            margin: 0;
+            text-align: center;
+        }
+
+        #message-list ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        #message-list ul li {
+            list-style: none;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-item {
+            list-style: none;
+            font-size: var(---fs-large);
+            margin: 40px 0;
+        }
+
+        #message-form {
+            grid-row: 2 / 10;
+            grid-column: 2 / 10;
+            background: linear-gradient(to right, rgb(199, 217, 223), rgb(232, 232, 232));
+            /* padding: 10px; */
+            display: none;
+            z-index: 1;
+            height: 100%;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
+        }
+
+        #message-form .message-form-x {
+            grid-row: 1 / 2;
+            grid-column: 10 / 11;
+            align-self: start;
+            justify-self: end;
+            margin: 10px 15px 0 0;
+        }
+
+        #message-form .message-form-post {
+            grid-row: 10 / 11;
+            grid-column: 4 / 8;
+            background-color: rgb(255, 255, 255, 0.3);
+            color: black;
+            font-weight: 700;
+            margin: 15px 100px;
+        }
+
+        #message-form input {
+            grid-row: 2 / 3;
+            grid-column: 2 / 10;
+            margin-bottom: 15px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: var(---fs-large);
+        }
+
+        #message-form input::placeholder {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: var(---fs-large);
+            text-align: center;
+            opacity: 0.15;
+        }
+
+        #message-form textarea {
+            grid-row: 3 / 10;
+            grid-column: 2 / 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: var(---fs-large);
+            resize: none;
+            overflow: scroll;
+        }
+
+        #message-form textarea::placeholder {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: var(---fs-jumbo);
+            text-align: center;
+            padding-top: 20vh;
+            opacity: 0.15;
+        }
+
+        .video-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+            z-index: 1;
+        }
+
+        #background-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(1.1);
+        }
+
+        #about {
+            height: 100vh;
+            width: 100vw;
+            background: rgb(199, 217, 223);
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
+        }
+
+        #marquee-container {
+            overflow: hidden;
+    white-space: nowrap;
+            text-align: center;
+            padding: 10px 0;
+            text-wrap: nowrap;
+            z-index: 3;
+            grid-column: 1 / 11;
+            grid-row: 1 / 2;
+            width: 100%;
+            mix-blend-mode: difference;
+            color: #ffc0cb;
+            font-size: var(---fs-large);
+        }
+
+        #marquee-container p {
+            display: inline-block;
+            animation: marquee 40s linear infinite;
+        }
+
+        @keyframes marquee {
+    from {
+      transform: translateX(50%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+        
+
+        .about-content {
+            position: relative;
+            z-index: 3;
+            grid-row: 9 / 11;
+            grid-column: 4 / 8;
+            align-self: center;
+            justify-self: center;
+            text-align: center;
+            font-size: var(---fs-xl);
+            mix-blend-mode: difference;
+            color: #ffc0cb;
+        }
+
+        /* SM: portrait phones, less than 576.98px */
+        @media (max-width: 575.98px) {
+            .nijntje-photo {
+                grid-row: 1 / 5;
+                grid-column: 1 / 11;
+                padding: 10px 20px 0 0;
+            }
+
+            #toggleButton {
+                grid-row: 5 / 6;
+                grid-column: 4 / 7;
+            }
+
+            h2 {
+                grid-row: 4 / 6;
+                grid-column: 3 / 6;
+            }
+
+            #photobook-container {
+                grid-row: 6 / 11;
+                grid-column: 1 / 11;
+                /* padding: 0; */
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .messageboard .left {
+                grid-row: 1 / 2;
+                grid-column: 1 / 11;
+                writing-mode: unset;
+                transform: rotate(0deg);
+                font-size: var(---fs-large);
+                padding: 10px;
+            }
+
+            .messageboard .right {
+                display: none;
+            }
+
+            #message-form .message-form-post {
+                margin: 15px;
+            }
+
+            .message-item {
+                font-size: 1rem;
+            }
+
+            #message-form textarea::placeholder {
+                font-size: var(---fs-large);
+                /* padding-top: 80%; */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <button class="nav" id="toggleMenu">
+            Menu
+        </button>
+
+        <button class="nav">
+            Contact
+        </button>
+    </nav>
+
+    <div id="menu">
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#fotoboek">Foto's</a></li>
+            <li><a href="#messageboard">Messageboard</a></li>
+            <li><a href="#about">Over Nijntje</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+            <li><a href="">Functioneel ontwerp</a></li>
+            <li><a id="toggleObserver">Stop auto-scroll</a></li>
+        </ul>
+    </div>
+
+    <section class="hero-section" id="home">
+
+        <p class="p-left">Swsed3dfert6RDDDD-0M,MOI</p>
+
+        <div class="hero-image">
+            <img id="playNijntjePrrr" src="./recources/images/nijntjepng.png">
+        </div>
+        <p id="nijntje-prrr">Prrrrr</p>
+        <p id="stopNijntjePrrr">(Stop)</p>
+        <h1>Nijntie Nijn problems but a purrr ain't one</h1>
+        <p class="p-right">//////////////;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </p>
+    </section>
+
+    <section class="photo-section" id="fotoboek">
+
+        <div class="nijntje-photo">
+            <img src="./recources/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">
+        </div>
+
+        <h2 id="toggleButton">Meer foto's van Nijntje</h2>
+
+
+        <div id="photobook-container" class="hidden">
+
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-17.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-18.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-19.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-17.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-18.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-19.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
+            </div>
+            <div>
+                <img src="./recources/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje">
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="messageboard" id="messageboard">
+
+        <button class="toggleMessageForm left">Zeg hallo tegen Nijntje</button>
+        <button class="toggleMessageForm right">Zeg hallo tegen Nijntje</button>
+
+        <form id="message-form">
+            <button id="closeMessageFormX" class="message-form-x">x</button>
+            <input type="text" name="username" placeholder="Naam" required>
+            <textarea name="content" placeholder="Zeg hallo" required maxlength="200"></textarea>
+            <button type="submit" id="closeMessageFormPost" class="message-form-post">Post</button>
+        </form>
+
+
+
+
+        <ul id="message-list">
+            <!-- Berichten worden hier geladen door JavaScript -->
+        </ul>
+
+    </section>
+
+    <section id="about">
+        <div class="video-container">
+            <video autoplay muted loop id="background-video">
+                <source src="./recources/video/nijntje.mp4" type="video/mp4">
+                Je browser ondersteunt geen HTML5 video.
+            </video>
+        </div>
+
+        <div id="marquee-container">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis maiores totam quas magni, facilis soluta sit! Officia sequi laborum, hic qui enim magnam odit ut animi! Temporibus autem id vitae quo repellat voluptas qui similique incidunt tenetur non. Quos, esse.</p>
+        </div>
+
+        <div class="about-content">
+            <h2>Over Nijntje</h2>
+        </div>
+    </section>
+
+    <section>
+        <h2>Neem contact op</h2>
+        <form id="contactForm" action="send" method="POST">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="message">Bericht:</label>
+            <textarea id="message" name="message" required></textarea>
+            <br>
+            <button type="submit">Verstuur</button>
+        </form>
+
+        <div id="responseMessage"></div>
+
+    </section>
+
+<!-- weg -->
+
+    <script>
+
+        // NIJNTJE PRRR
+        // Audio-object
+        const audio = new Audio('/nijntje/recources/audio/nijntje-prrr.mp3');
+
+        // Event listener voor het afspelen van het audio- en bericht
+        document.getElementById('playNijntjePrrr').addEventListener('click', showNijntjePrrr);
+
+        function showNijntjePrrr() {
+            // Speel het audio-bestand af
+            audio.play();
+
+            // Toon het bericht
+            const message = document.getElementById('nijntje-prrr');
+            message.style.display = 'flex';
+
+            // Verberg het bericht na 5 seconden
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 5000);
+
+            // Toon de stop-knop na 5 seconden en verberg deze na 10 seconden
+            const stopNijntjePrrr = document.getElementById('stopNijntjePrrr');
+            setTimeout(() => {
+                stopNijntjePrrr.style.display = 'flex';
+
+                // Verberg de knop na 10 seconden automatisch
+                setTimeout(() => {
+                    stopNijntjePrrr.style.display = 'none';
+                }, 5000);
+
+            }, 5000);
+        }
+
+        // Functie om het geluid te stoppen
+        function stopSound() {
+            audio.pause();
+            audio.currentTime = 0;
+            document.getElementById('stopNijntjePrrr').style.display = 'none';
+        }
+
+        // Event listener voor het stoppen van het geluid
+        document.getElementById('stopNijntjePrrr').addEventListener('click', stopSound);
+
+        // SWITCH IMAGE // 
+        const images = document.querySelectorAll("#photobook-container img");
+        const displayContainer = document.querySelector(".nijntje-photo");
+
+        // Iterate over the NodeList and add the click event listener to each image
+        images.forEach((img) => {
+            img.addEventListener("click", function () {
+                // Create a new image element to display
+                const clickedImage = document.createElement("img");
+                clickedImage.src = img.src; // Use the src of the clicked image
+                clickedImage.alt = img.alt; // Use the alt text of the clicked image
+
+                // Clear the display container and append the new image
+                displayContainer.innerHTML = ""; // Clear previous image
+                displayContainer.appendChild(clickedImage); // Append the clicked image
+            });
+        });
+
+
+        // TOGGLE BUTTON //
+        document.getElementById("toggleButton").addEventListener("click", function () {
+            const div = document.getElementById("photobook-container");
+            const header = document.querySelector(".photo-section h2");
+            let orginal = document.querySelector(".nijntje-photo img");
+            let orignal = orginal.outerHTML;
+
+            if (div.classList.contains("hidden")) {
+                div.classList.remove("hidden");
+                div.classList.add("grid");
+                header.textContent = "Minder foto's van Nijntje";
+            }
+
+            else {
+                div.classList.remove("grid");
+                div.classList.add("hidden");
+                header.textContent = "Meer foto's van Nijntje";
+                document.querySelector(".nijntje-photo").innerHTML = '<img src="./recources/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">';
+                console.log(orginal);
+            }
+        });
+
+        // API MESSAGEBOARD
+        document.addEventListener('DOMContentLoaded', function () {
+            const messageList = document.querySelector('#message-list');
+            const messageForm = document.querySelector('#message-form');
+            const usernameInput = document.querySelector('input[name="username"]');
+            const contentInput = document.querySelector('textarea[name="content"]');
+
+            // Functie om berichten op te halen
+            function fetchMessages() {
+                fetch('https://gielvangaal.nl/board/api/messages/')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        messageList.innerHTML = '';
+                        data.reverse();
+                        data.forEach(message => {
+                            const listItem = document.createElement('li');
+                            listItem.innerHTML = `<strong>${message.username}</strong> - ${message.formatted_date} - ${message.formatted_time}<br> ${message.content}`;
+
+                            listItem.classList.add('message-item');
+
+                            messageList.appendChild(listItem);
+                        });
+                    });
+            }
+
+            // Functie om een nieuw bericht te versturen
+            messageForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const messageData = {
+                    username: usernameInput.value,
+                    content: contentInput.value,
+                };
+
+                fetch('https://gielvangaal.nl/board/api/messages/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}' // Zorg ervoor dat je een CSRF-token toevoegt
+                    },
+                    body: JSON.stringify(messageData)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        fetchMessages(); // Herlaad de berichten na het verzenden van een nieuw bericht
+                        messageForm.reset(); // Formulier leegmaken
+                    });
+            });
+
+            // Initialiseer de berichten bij het laden van de pagina
+            fetchMessages();
+        });
+
+        // API CONTACTFORM
+
+        document.getElementById("contactForm").addEventListener("submit", async (e) => {
+            e.preventDefault(); // Voorkomt het standaard submit gedrag
+
+            const form = e.target; // Het formulier dat is verzonden
+            const formDataObj = {}; // Object om de formuliergegevens op te slaan
+            new FormData(form).forEach((value, key) => {
+                formDataObj[key] = value;
+            });
+
+            console.log(formDataObj); // Log de gegevens voor debuggen
+
+            // Zet het object om naar een URL-gecodeerde string
+            const urlEncodedData = new URLSearchParams(formDataObj).toString();
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method, // Gebruik de methode die in het formulier is gespecificeerd
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded', // Geef aan dat we URL-gecodeerde gegevens verzenden
+                    },
+                    body: urlEncodedData, // Gebruik de URL-gecodeerde gegevens
+                });
+
+                const message = await response.text(); // Haal de response-tekst op
+                document.getElementById("responseMessage").innerText = message; // Laat de response-tekst zien in de HTML
+
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById("responseMessage").innerText = "Fout bij het verzenden van het bericht.";
+            }
+        });
+
+        // TOGGLE MENU
+        document.getElementById("toggleMenu").onclick = function () {
+            const menu = document.getElementById("menu");
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "flex";
+            } else {
+                menu.style.display = "none";
+            }
+        };
+
+        // CLOSE MENU
+        document.querySelectorAll("#menu a").forEach((link) => {
+            link.onclick = function () {
+                document.getElementById("menu").style.display = "none";
+            };
+        });
+
+        // TOGGLE MESSAGE FORM
+        const buttonsToggleMessageForm = document.getElementsByClassName("toggleMessageForm");
+        Array.from(buttonsToggleMessageForm).forEach(button => {
+            button.addEventListener("click", function () {
+                const messageform = document.getElementById("message-form");
+                if (messageform.style.display === "none" || messageform.style.display === "") {
+                    messageform.style.display = "grid";
+                } else {
+                    messageform.style.display = "none";
+                }
+            });
+        });
+
+        // CLOSE MESSAGE FORM X
+        const closeMessageFormX = document.getElementById("closeMessageFormX");
+
+        closeMessageFormX.addEventListener("click", function () {
+            const messageForm = document.getElementById("message-form");
+            messageForm.style.display = "none";
+        });
+
+        // CLOSE MESSAGE FORM POST
+        const CloseMessageFormPost = document.getElementById("closeMessageFormPost");
+
+        CloseMessageFormPost.addEventListener("click", function () {
+            const messageForm = document.getElementById("message-form");
+
+            if (messageForm.checkValidity()) {
+                messageForm.style.display = "none";
+            } else {
+                messageForm.reportValidity();
+            }
+        });
+
+        // OBSERVER
+        // Selecteer de knop
+        const toggleButton = document.getElementById('toggleObserver');
+
+        // Selecteer alle secties
+        const sections = document.querySelectorAll('section');
+
+        // Opties voor de IntersectionObserver
+        const observerOptions = {
+            root: null,             // viewport als root
+            rootMargin: '0px',
+            threshold: 0.4          // activeer wanneer 40% zichtbaar is
+        };
+
+        // Maak de IntersectionObserver aan
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Scroll de sectie naar het midden van het scherm
+                    entry.target.scrollIntoView({
+                        behavior: 'smooth', // soepele scroll-animatie
+                        block: 'center'     // centreer de sectie
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Variabele om de staat van de observer bij te houden
+        let observerActive = true;
+
+        // Functie om de observer aan of uit te zetten
+        function toggleObserver() {
+            if (observerActive) {
+                // Stop de observer
+                sections.forEach(section => observer.unobserve(section));
+                toggleButton.textContent = 'Start auto-scroll'; // Verander de knoptekst
+            } else {
+                // Start de observer
+                sections.forEach(section => observer.observe(section));
+                toggleButton.textContent = 'Stop auto-scroll'; // Verander de knoptekst
+            }
+            observerActive = !observerActive; // Wissel de staat van de observer
+        }
+
+        // Start de observer meteen wanneer de pagina wordt geladen
+        sections.forEach(section => observer.observe(section));
+
+        // Voeg de onclick handler toe aan de knop
+        toggleButton.addEventListener('click', toggleObserver);
+
+
+        // DIT HAD NIJNTJE ER ZELF OVER TE ZEGGEN
+        // Selecteer zowel p-right als p-left en zet ze in een array
+        const elements = [
+            document.querySelector('.p-right'),
+            document.querySelector('.p-left')
+        ];
+
+        // Bewaar de oorspronkelijke tekst voor elk element
+        const originalTexts = elements.map(element => element.innerHTML);
+
+        function changeText(element, originalText) {
+            // Verander de tekst van het element
+            element.innerHTML = '(Dit had Nijntje er zelf over te zeggen!)';
+            // element.style.fontSize = 'smaller';
+            element.style.fontStyle = 'italic';
+
+            // Zet de tekst na 3 seconden terug naar de oorspronkelijke tekst
+            setTimeout(function () {
+                element.innerHTML = originalText;
+                // element.style.fontSize = 'initial';
+                element.style.fontStyle = 'initial';
+            }, 3000); // 3000 milliseconden = 3 seconden
+        }
+
+        // Voeg de event listeners toe voor elk element in de array
+        elements.forEach((element, index) => {
+            element.addEventListener('click', function () {
+                changeText(element, originalTexts[index]);
+            });
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

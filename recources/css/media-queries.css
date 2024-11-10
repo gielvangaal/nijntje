@@ -1,0 +1,35 @@
+/* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ 
+
+/* SM: portrait phones, less than 576.98px */
+@media (max-width: 575.98px) {
+
+}
+
+/* MD: landscape phones, greater then 575.99 and less than 767.98px */
+@media screen and (min-width: 575.99px) and (max-width: 767.98px) {
+
+}
+
+/* LG: tablets, greater then 767.99 and less than 991.98px */
+@media screen and (min-width: 767.99px) and (max-width: 991.98px) {
+   
+}
+
+/* XL: desktops, greater then 991.99 and less than 1199.98px */
+@media screen and (min-width: 991.99px) and (max-width: 1199.98px) {
+
+}
+
+/* XXL: large desktops, greater than 1199.99px */
+@media screen and (min-width:1199.99) {
+
+}
+/* MOBILE LANDSCAPE: mobile phones, less then 1000px and in landscape orientation */
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+
+}
+
+/* IPHONE SE: very small smartphones, less than 378px */
+@media screen and (max-width:378px) {
+
+}

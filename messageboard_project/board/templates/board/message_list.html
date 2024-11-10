@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message Board</title>
+</head>
+<body>
+    <h1>Message Board</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Your name" required>
+        <textarea name="content" placeholder="Your message" required></textarea>
+        <button type="submit">Post</button>
+    </form>
+
+    <h2>Messages</h2>
+    <ul>
+        {% for message in messages %}
+            <li>
+                <strong>{{ message.username }}</strong>
+                 {{ message.content }} 
+                 <em>Datum: {{ message.formatted_date }}
+                    Tijd: {{ message.formatted_time }}</em>
+            </li>
+        {% empty %}
+            <li>No messages yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
