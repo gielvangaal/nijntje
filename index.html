@@ -552,7 +552,8 @@
 
         .video-container {
             position: absolute;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;
@@ -564,9 +565,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            
-            
-            
+
+
+
             filter: grayscale(100%) brightness(1.1);
         }
 
@@ -584,20 +585,21 @@
             overflow: hidden;
             white-space: nowrap;
             text-align: center;
-            padding: 10px 0;
+            /* padding: 10px 0; */
+            
             text-wrap: nowrap;
             z-index: 3;
-            grid-column: 1 / 11;
-            grid-row: 1 / 2;
+            /* grid-column: 1 / 11;
+            grid-row: 1 / 2; */
             width: 100%;
-            mix-blend-mode: difference;
-            color: #ffc0cb;
+            color: whitesmoke;
             font-size: var(---fs-large);
         }
 
         #marquee-container p {
             display: inline-block;
             animation: marquee 40s linear infinite;
+            margin: 5px 0;
         }
 
         @keyframes marquee {
@@ -611,14 +613,12 @@
         }
 
         #toggleVideo {
-            grid-row: 7 / 8;
-            grid-column: 9 / 10;
+            grid-row: 1 / 2;
+            grid-column: 5 / 7;
             z-index: 3;
             mix-blend-mode: difference;
             color: whitesmoke;
         }
-
-
 
         .about-content {
             position: relative;
@@ -633,8 +633,32 @@
             color: #ffc0cb;
         }
 
+        #aboutModal {
+            display: none;
+            grid-row: 2 / 9;
+            grid-column: 2 / 10;
+            background-color: rgb(223, 196, 128, 0.8);
+            z-index: 3;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
+        }
+
+        #aboutModal p:nth-last-child(2) {
+            grid-row: 2 / 11;
+            grid-column: 1 / 6;
+            font-size: var(---fs-large);
+            background-color: #ffffff;
+        }
+
+        #aboutModal p:last-of-type {
+            grid-row: 2 / 11;
+            grid-column: 6 / 11;
+            font-size: var(---fs-large);
+            background-color: #dfc480;
+        }
+
         .contact-section {
-            height: 50vh;
+            height: 70vh;
             width: 100vw;
             background: linear-gradient(to right, lightblue, rgb(232, 232, 232));
             display: grid;
@@ -692,6 +716,10 @@
                 font-size: var(---fs-large);
                 /* padding-top: 80%; */
             }
+
+            .about-content {
+                font-size: var(---fs-large);
+            }
         }
     </style>
 </head>
@@ -703,7 +731,7 @@
         </button>
 
         <button class="nav">
-            Contact
+            <a href="#contact">Contact</a>
         </button>
     </nav>
 
@@ -816,27 +844,34 @@
     <section id="about">
         <div class="video-container">
             <video autoplay muted loop playsinline id="background-video">
-                
+
                 <!-- <source src="./recources/video/nijntje.webm" type="video/webm"> -->
                 <source src="./recources/video/nijntje.mp4" type="video/mp4">
                 Je browser ondersteunt geen HTML5 video.
             </video>
         </div>
 
-        <div id="marquee-container">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis maiores totam quas magni, facilis soluta
-                sit! Officia sequi laborum, hic qui enim magnam odit ut animi! Temporibus autem id vitae quo repellat
-                voluptas qui similique incidunt tenetur non. Quos, esse.</p>
-        </div>
-
-        <button onclick="toggleVideo()" id="toggleVideo">Stop/start<br>video</button>
+        <button onclick="toggleVideo()" id="toggleVideo">Stop/start video</button>
 
         <div class="about-content">
-            <h2>Over Nijntje</h2>
+            <h2 id="overNijntje">Over Nijntje</h2>
+        </div>
+
+        <div id="aboutModal">
+
+            <div id="marquee-container">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis maiores totam quas magni, facilis soluta
+                    sit! Officia sequi laborum, hic qui enim magnam odit ut animi! Temporibus autem id vitae quo repellat
+                    voluptas qui similique incidunt tenetur non. Quos, esse.</p>
+            </div>
+
+            <p>Stats</p>
+            <p>Verhaaltje</p>
+
         </div>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-section" id="contact">
         <h2>Don't be a stranger</h2>
         <form id="contactForm" action="send" method="POST">
             <label for="email">E-mail:</label>
@@ -1163,13 +1198,28 @@
 
         // VIDEO TOGGLER
         function toggleVideo() {
+            const video = document.getElementById('background-video');
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+// OVER NIJNTJE TOGGLE
+document.getElementById('overNijntje').addEventListener('click', function () {
+    const aboutModal = document.getElementById('aboutModal');
     const video = document.getElementById('background-video');
-    if (video.paused) {
-        video.play();
+    
+    // Toggle modal visibility
+    if (aboutModal.style.display === 'grid') {
+        aboutModal.style.display = 'none';
+        video.play(); // Start video again when modal is closed
     } else {
-        video.pause();
+        aboutModal.style.display = 'grid';
+        video.pause(); // Pause video when modal is opened
     }
-}
+});
 
 
 
