@@ -589,22 +589,24 @@
             
             text-wrap: nowrap;
             z-index: 3;
-            /* grid-column: 1 / 11;
-            grid-row: 1 / 2; */
+            grid-column: 1 / 11;
+            grid-row: 1 / 2;
             width: 100%;
             color: whitesmoke;
             font-size: var(---fs-large);
         }
 
-        #marquee-container p {
+        #marquee-container aside {
             display: inline-block;
             animation: marquee 40s linear infinite;
             margin: 5px 0;
+            
+            
         }
 
         @keyframes marquee {
             from {
-                transform: translateX(50%);
+                transform: translateX(20%);
             }
 
             to {
@@ -860,9 +862,7 @@
         <div id="aboutModal">
 
             <div id="marquee-container">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis maiores totam quas magni, facilis soluta
-                    sit! Officia sequi laborum, hic qui enim magnam odit ut animi! Temporibus autem id vitae quo repellat
-                    voluptas qui similique incidunt tenetur non. Quos, esse.</p>
+                <aside>Stats. Ras: Europese korthaar - Ogen: grijs/groen - Vacht: zwart/wit - Bijzonderheden: appoteert, geamputeerde staart, darmprobleempjes (scheetjes!) </aside>
             </div>
 
             <p>Stats</p>
