@@ -579,14 +579,13 @@
             display: grid;
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
+
         }
 
         #marquee-container {
             overflow: hidden;
             white-space: nowrap;
             text-align: center;
-            /* padding: 10px 0; */
-            
             text-wrap: nowrap;
             z-index: 3;
             grid-column: 1 / 11;
@@ -596,12 +595,30 @@
             font-size: var(---fs-large);
         }
 
-        #marquee-container aside {
+        #marquee-content img {
+            height: 0.8%;
+            width: 0.8%;
+            color: white;
+        }
+
+        aside {
             display: inline-block;
-            animation: marquee 40s linear infinite;
-            margin: 5px 0;
-            
-            
+            /* animation: marquee 40s linear infinite; */
+            margin: 15px 0;
+        }
+
+        article {
+            grid-row: 2 / 9;
+            grid-column: 2 / 10;
+            text-align: center;
+            /* align-self: center;
+            justify-self: center; */
+            z-index: 3;
+            padding: 10px;
+            font-size: var(---fs-large);
+            mix-blend-mode: difference;
+            color: whitesmoke;
+
         }
 
         @keyframes marquee {
@@ -643,20 +660,7 @@
             z-index: 3;
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
-        }
-
-        #aboutModal p:nth-last-child(2) {
-            grid-row: 2 / 11;
-            grid-column: 1 / 6;
-            font-size: var(---fs-large);
-            background-color: #ffffff;
-        }
-
-        #aboutModal p:last-of-type {
-            grid-row: 2 / 11;
-            grid-column: 6 / 11;
-            font-size: var(---fs-large);
-            background-color: #dfc480;
+            overflow: scroll;
         }
 
         .contact-section {
@@ -862,11 +866,53 @@
         <div id="aboutModal">
 
             <div id="marquee-container">
-                <aside>Stats. Ras: Europese korthaar - Ogen: grijs/groen - Vacht: zwart/wit - Bijzonderheden: appoteert, geamputeerde staart, darmprobleempjes (scheetjes!) </aside>
+                <aside id="marquee-content">
+                    Naam: Nijntje &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
+                    Ras: Europese Korthaart &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
+                    Ogen: Grijs/ groen &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
+                    Vacht: Wit/ zwart &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
+                    Superpower: apporteren &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
+                    Kenmerken: Geamputeerde staart &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
+                    Darmprobleempjes (scheetjes!) &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
+                    Poept in je plant &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
+                    Super cute &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
+                </aside>
             </div>
 
-            <p>Stats</p>
-            <p>Verhaaltje</p>
+            <!-- <div id="about-stats"><h2>Stats</h2>
+                <ul>
+                    <li>Naam: Nijntje</li>
+                    <li>Ras: Europese Korthaart</li>
+                    <li>Ogen: Grijs/ groen</li>
+                    <li>Vacht: Wit/ zwart</li>
+                    <li>Superpower: apporteren</li>
+                    <li>Kenmerken:</li>
+                    <ul>
+                        <li>Geamputeerde staart</li>
+                        <li>Darmprobleempjes (scheetjes!)</li>
+                        <li>Poept in de planten</li>
+                        <li>Super cute</li>
+                    </ul>
+                </ul>
+
+             
+             <img src="./recources/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">
+             
+
+            </div> -->
+
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nam vel veritatis mollitia labore
+                    est
+                    laudantium hic eius nemo? Doloribus dolor alias dolores similique id cum, deleniti tenetur vel.
+                    Veniam
+                    temporibus laudantium illum reiciendis libero nihil accusantium tempora omnis aliquam?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nam vel veritatis mollitia labore
+                    est
+                    laudantium hic eius nemo? Doloribus dolor alias dolores similique id cum, deleniti tenetur vel.
+                    Veniam
+                    temporibus laudantium illum reiciendis libero nihil accusantium tempora omnis aliquam?</p>
+            </article>
 
         </div>
     </section>
@@ -1206,20 +1252,64 @@
             }
         }
 
-// OVER NIJNTJE TOGGLE
-document.getElementById('overNijntje').addEventListener('click', function () {
-    const aboutModal = document.getElementById('aboutModal');
-    const video = document.getElementById('background-video');
-    
-    // Toggle modal visibility
-    if (aboutModal.style.display === 'grid') {
-        aboutModal.style.display = 'none';
-        video.play(); // Start video again when modal is closed
-    } else {
-        aboutModal.style.display = 'grid';
-        video.pause(); // Pause video when modal is opened
-    }
-});
+        // OVER NIJNTJE TOGGLE
+        document.getElementById('overNijntje').addEventListener('click', function () {
+            const aboutModal = document.getElementById('aboutModal');
+            const video = document.getElementById('background-video');
+
+            // Toggle modal visibility
+            if (aboutModal.style.display === 'grid') {
+                aboutModal.style.display = 'none';
+                video.play(); // Start video again when modal is closed
+            } else {
+                aboutModal.style.display = 'grid';
+                video.pause(); // Pause video when modal is opened
+            }
+        });
+
+        // MARQUEE
+        const marqueeContent = document.getElementById('marquee-content');
+        let marqueePosition = 0, startX = 0, isDragging = false;
+
+        // Automatische scroll functie
+        function autoScroll() {
+            if (!isDragging) {
+                marqueePosition -= 1;
+                marqueeContent.style.transform = `translateX(${marqueePosition}px)`;
+                if (marqueePosition <= -marqueeContent.offsetWidth) {
+                    marqueePosition = marqueeContent.parentElement.offsetWidth;
+                }
+            }
+            requestAnimationFrame(autoScroll);
+        }
+
+        // Sleep-functionaliteit
+        marqueeContent.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - marqueePosition;
+            marqueeContent.style.cursor = 'grabbing';
+        });
+
+        marqueeContent.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                marqueePosition = e.pageX - startX;
+                marqueeContent.style.transform = `translateX(${marqueePosition}px)`;
+            }
+        });
+
+        marqueeContent.addEventListener('mouseup', () => {
+            isDragging = false;
+            marqueeContent.style.cursor = 'grab';
+        });
+
+        marqueeContent.addEventListener('mouseleave', () => {
+            isDragging = false;
+            marqueeContent.style.cursor = 'grab';
+        });
+
+        // Start de automatische scroll
+        autoScroll();
+
 
 
 
