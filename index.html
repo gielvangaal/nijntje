@@ -565,9 +565,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-
-
-
             filter: grayscale(100%) brightness(1.1);
         }
 
@@ -593,43 +590,45 @@
             width: 100%;
             color: whitesmoke;
             font-size: var(---fs-large);
+            cursor: grab;
         }
 
         #marquee-content img {
-            height: 0.8%;
-            width: 0.8%;
-            color: white;
+            height: 0.5%;
+            width: 0.5%;
         }
 
         aside {
-            display: inline-block;
-            /* animation: marquee 40s linear infinite; */
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
             margin: 15px 0;
+            color: whitesmoke;
+            animation: marquee 50s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(50%);
+                /* Begin buiten het scherm aan de rechterkant */
+            }
+
+            100% {
+                transform: translateX(-120%);
+                /* Verplaats naar links buiten het scherm */
+            }
         }
 
         article {
             grid-row: 2 / 9;
             grid-column: 2 / 10;
             text-align: center;
-            /* align-self: center;
-            justify-self: center; */
             z-index: 3;
             padding: 10px;
             font-size: var(---fs-large);
-            mix-blend-mode: difference;
             color: whitesmoke;
-
         }
 
-        @keyframes marquee {
-            from {
-                transform: translateX(20%);
-            }
-
-            to {
-                transform: translateX(-100%);
-            }
-        }
 
         #toggleVideo {
             grid-row: 1 / 2;
@@ -657,6 +656,7 @@
             grid-row: 2 / 9;
             grid-column: 2 / 10;
             background-color: rgb(223, 196, 128, 0.8);
+            /* background-color: rgb(244, 147, 12, 0.8); */
             z-index: 3;
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
@@ -867,39 +867,18 @@
 
             <div id="marquee-container">
                 <aside id="marquee-content">
-                    Naam: Nijntje &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
-                    Ras: Europese Korthaart &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
-                    Ogen: Grijs/ groen &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
-                    Vacht: Wit/ zwart &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
-                    Superpower: apporteren &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
-                    Kenmerken: Geamputeerde staart &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
-                    Darmprobleempjes (scheetjes!) &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
-                    Poept in je plant &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
-                    Super cute &nbsp;<img src="recources/images/pootje.svg">&nbsp; 
+                    naam: nijntje &nbsp;<img src="recources/images/pootje.svg">&nbsp;
+                    geboortedatum: 01 augustus 2024 &nbsp;<img src="recources/images/pootje.svg">&nbsp;
+                    ras: europese korthaar &nbsp;<img src="recources/images/pootje.svg">&nbsp;
+                    ogen: grijs/ groen &nbsp;<img src="recources/images/pootje.svg">&nbsp;
+                    vacht: wit met zwarte vlekjes &nbsp;<img src="recources/images/pootje.svg">&nbsp;
+                    superpower: apporteren &nbsp;<img src="recources/images/pootje.svg">&nbsp;
+                    bijzonderheden: geamputeerde staart &nbsp;<img src="recources/images/pootje.svg">&nbsp;
+                    darmprobleempjes (scheetjes!) &nbsp;<img src="recources/images/pootje.svg">&nbsp;
+                    poept in je plant &nbsp;<img src="recources/images/pootje.svg">&nbsp;
+                    super cute
                 </aside>
             </div>
-
-            <!-- <div id="about-stats"><h2>Stats</h2>
-                <ul>
-                    <li>Naam: Nijntje</li>
-                    <li>Ras: Europese Korthaart</li>
-                    <li>Ogen: Grijs/ groen</li>
-                    <li>Vacht: Wit/ zwart</li>
-                    <li>Superpower: apporteren</li>
-                    <li>Kenmerken:</li>
-                    <ul>
-                        <li>Geamputeerde staart</li>
-                        <li>Darmprobleempjes (scheetjes!)</li>
-                        <li>Poept in de planten</li>
-                        <li>Super cute</li>
-                    </ul>
-                </ul>
-
-             
-             <img src="./recources/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">
-             
-
-            </div> -->
 
             <article>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nam vel veritatis mollitia labore
@@ -1267,48 +1246,8 @@
             }
         });
 
+
         // MARQUEE
-        const marqueeContent = document.getElementById('marquee-content');
-        let marqueePosition = 0, startX = 0, isDragging = false;
-
-        // Automatische scroll functie
-        function autoScroll() {
-            if (!isDragging) {
-                marqueePosition -= 1;
-                marqueeContent.style.transform = `translateX(${marqueePosition}px)`;
-                if (marqueePosition <= -marqueeContent.offsetWidth) {
-                    marqueePosition = marqueeContent.parentElement.offsetWidth;
-                }
-            }
-            requestAnimationFrame(autoScroll);
-        }
-
-        // Sleep-functionaliteit
-        marqueeContent.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.pageX - marqueePosition;
-            marqueeContent.style.cursor = 'grabbing';
-        });
-
-        marqueeContent.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                marqueePosition = e.pageX - startX;
-                marqueeContent.style.transform = `translateX(${marqueePosition}px)`;
-            }
-        });
-
-        marqueeContent.addEventListener('mouseup', () => {
-            isDragging = false;
-            marqueeContent.style.cursor = 'grab';
-        });
-
-        marqueeContent.addEventListener('mouseleave', () => {
-            isDragging = false;
-            marqueeContent.style.cursor = 'grab';
-        });
-
-        // Start de automatische scroll
-        autoScroll();
 
 
 
