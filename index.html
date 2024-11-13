@@ -664,13 +664,55 @@
         }
 
         .contact-section {
-            height: 70vh;
+            height: 100vh;
             width: 100vw;
             background: linear-gradient(to right, lightblue, rgb(232, 232, 232));
+            /* display: grid;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%); */
+        }
+
+        .contact-section h2 {
+            grid-row: 1 / -1;
+            grid-column: 1 / 11;
+            background-color: #dfc480;
+            justify-self: center;
+            align-self: center;
+            font-size: 25vw;
+            z-index: 1;
+            display: none;
+        }
+
+        .contact-section form {
             display: grid;
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
+            /* background-color: #dfc480; */
+            height: 100%;
+            width: 100%;
         }
+
+        .contact-section input {
+            grid-row: 2 / 4;
+            grid-column: 2 / 10;
+            margin: 10px;
+            background-color: rgb(255, 192, 203, 0.5);
+        }
+
+        .contact-section textarea {
+            grid-row: 4 / 10;
+            grid-column: 2 / 10;
+            margin: 10px;
+            background-color: rgb(255, 192, 203, 0.5);
+        }
+
+        .contact-section button {
+            grid-row: 10 / 11;
+            grid-column: 4 / 8;
+            background-color: rgb(255, 192, 203, 0.5);
+            margin: 10px;
+        }
+            
 
         /* SM: portrait phones, less than 576.98px */
         @media (max-width: 575.98px) {
@@ -867,7 +909,7 @@
 
             <div id="marquee-container">
                 <aside id="marquee-content">
-                    naam: nijntje &nbsp;<img src="recources/images/pootje.svg">&nbsp;
+                    naam: nijntje &nbsp;&#128062;&nbsp;
                     geboortedatum: 01 augustus 2024 &nbsp;<img src="recources/images/pootje.svg">&nbsp;
                     ras: europese korthaar &nbsp;<img src="recources/images/pootje.svg">&nbsp;
                     ogen: grijs/ groen &nbsp;<img src="recources/images/pootje.svg">&nbsp;
@@ -897,14 +939,20 @@
     </section>
 
     <section class="contact-section" id="contact">
-        <h2>Don't be a stranger</h2>
+        <h2>Miauw</h2>
+
         <form id="contactForm" action="send" method="POST">
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-            <br>
-            <label for="message">Bericht:</label>
-            <textarea id="message" name="message" required></textarea>
-            <br>
+
+            
+            <!-- <label for="email">E-mail:</label> -->
+            <input type="email" id="email" name="email" placeholder="E-MAIL" required>
+        
+
+        
+            <!-- <label for="message">Bericht:</label> -->
+            <textarea id="message" name="message" placeholder="MIAUW" required></textarea>
+        
+            
             <button type="submit">Verstuur</button>
         </form>
 
@@ -1150,7 +1198,7 @@
         const observerOptions = {
             root: null,             // viewport als root
             rootMargin: '0px',
-            threshold: 0.4          // activeer wanneer 40% zichtbaar is
+            threshold: 0.2          // activeer wanneer 40% zichtbaar is
         };
 
         // Maak de IntersectionObserver aan
