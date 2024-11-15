@@ -30,7 +30,7 @@
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-size: var(---fs-large);
             text-align: center;
-            opacity: 1;
+            opacity: 0.5;
         }
 
         body {
@@ -150,6 +150,14 @@
             max-height: 100%;
             filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
             cursor: pointer;
+            padding: 30px;
+            box-sizing: border-box;
+            transform: scale(1); /* Standaard schaal */
+    transition: transform 0.5s;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.1);
         }
 
         #nijntje-prrr {
@@ -443,7 +451,6 @@
             font-weight: 700;
         }
 
-
         .messageboard .right {
             grid-row: 1 / 11;
             grid-column: 9 / 11;
@@ -457,6 +464,13 @@
             align-items: center;
             font-size: var(---fs-xl);
             font-weight: 700;
+        }
+
+        .left:hover, .right:hover {
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+            font-size: var(---fs-xxl);
         }
 
         #message-list {
@@ -559,6 +573,19 @@
             filter: grayscale(100%) brightness(1.1);
         }
 
+        #overNijntje {
+            cursor: pointer;
+            
+        }
+
+        #overNijntje:hover {
+            color: whitesmoke;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+            
+        }
+
         #about {
             height: 100vh;
             width: 100vw;
@@ -567,7 +594,6 @@
             display: grid;
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
-
         }
 
         #marquee-container {
@@ -964,12 +990,12 @@
             <div id="responseMessage"></div>
 
             <!-- <label for="email">E-mail:</label> -->
-            <input type="email" id="email" name="email" placeholder="E-MAIL" required>
+            <input type="email" id="email" name="email" placeholder="E-mail" required>
 
 
 
             <!-- <label for="message">Bericht:</label> -->
-            <textarea id="message" name="message" placeholder="MIAUW" required></textarea>
+            <textarea id="message" name="message" placeholder="Miauw" required></textarea>
 
 
             <button type="submit">Verstuur</button>
@@ -1262,35 +1288,53 @@
 
 
         // DIT HAD NIJNTJE ER ZELF OVER TE ZEGGEN
-        // Selecteer zowel p-right als p-left en zet ze in een array
-        const elements = [
-            document.querySelector('.p-right'),
-            document.querySelector('.p-left')
-        ];
+ // Selecteer zowel p-right als p-left en zet ze in een array
+const elements = [
+    document.querySelector('.p-right'),
+    document.querySelector('.p-left')
+];
 
-        // Bewaar de oorspronkelijke tekst voor elk element
-        const originalTexts = elements.map(element => element.innerHTML);
+// Bewaar de oorspronkelijke tekst voor elk element
+const originalTexts = elements.map(element => element.innerHTML);
 
-        function changeText(element, originalText) {
-            // Verander de tekst van het element
-            element.innerHTML = '(Dit had Nijntje er zelf over te zeggen!)';
-            // element.style.fontSize = 'smaller';
-            element.style.fontStyle = 'italic';
+function changeTextOnClick(element, originalText) {
+    // Verander de tekst van het element
+    element.innerHTML = '(Dit had Nijntje er zelf over te zeggen!)';
+    // element.style.fontStyle = 'italic';
 
-            // Zet de tekst na 3 seconden terug naar de oorspronkelijke tekst
-            setTimeout(function () {
-                element.innerHTML = originalText;
-                // element.style.fontSize = 'initial';
-                element.style.fontStyle = 'initial';
-            }, 3000); // 3000 milliseconden = 3 seconden
-        }
+    // Zet de tekst na 3 seconden terug naar de oorspronkelijke tekst
+    setTimeout(function () {
+        element.innerHTML = originalText;
+        // element.style.fontStyle = 'initial';
+    }, 3000); // 3000 milliseconden = 3 seconden
+}
 
-        // Voeg de event listeners toe voor elk element in de array
-        elements.forEach((element, index) => {
-            element.addEventListener('click', function () {
-                changeText(element, originalTexts[index]);
-            });
-        });
+function changeTextOnHover(element, hoverText, originalText) {
+    // Hover event
+    element.addEventListener('mouseover', function () {
+        element.innerHTML = hoverText;
+    });
+
+    // Herstel de originele tekst bij mouseout
+    element.addEventListener('mouseout', function () {
+        element.innerHTML = originalText;
+    });
+}
+
+// Voeg de event listeners toe voor elk element in de array
+elements.forEach((element, index) => {
+    const originalText = originalTexts[index];
+
+    // Click event
+    element.addEventListener('click', function () {
+        changeTextOnClick(element, originalText);
+    });
+
+    // Hover event
+    changeTextOnHover(element, '(Dit had Nijntje er zelf over te zeggen!)', originalText);
+});
+
+
 
         // VIDEO TOGGLER
         function toggleVideo() {
