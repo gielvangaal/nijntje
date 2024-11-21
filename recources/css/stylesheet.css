@@ -351,12 +351,13 @@
             align-items: start;
             font-size: var(---fs-jumbo);
             font-weight: 900;
+            /* z-index: -1; */
         }
 
         #message-container {
             grid-row: 4 / -1;
             grid-column: 6 / -1;
-            background-color: rgb(255, 255, 255, 0.3);
+            background-color: rgb(255, 255, 255, 0.1);
             overflow: scroll;
             height: calc(100% - 60px);
             margin: 30px;
@@ -387,11 +388,11 @@
             grid-column: 1 / 6; */
             display: grid;
             /* z-index: 5; */
-            height: calc(100% - 60px);
-            margin: 30px;
+            height: 100%;
+            /* margin: 30px; */
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
-            
+            background-color: var(---white);
         }
 
         #message-form .message-form-x {
@@ -402,22 +403,20 @@
             color: var(---orange1);
             mix-blend-mode: difference;
             font-size: smaller;
-            
-            /* margin: 10px 15px 0 0; */
+            margin: 10px 15px 0 0;
         }
 
         #message-form .message-form-post {
             grid-row: 10 / 11;
-            grid-column: 4 / 8;
-            /* background-color: rgb(255, 255, 255, 0.3); */
-            margin: 15px 100px;
+            grid-column: 5 / 7;
+            margin: 15px;
             color: var(---orange1);
             mix-blend-mode: difference;
             border: 1px dashed var(---orange1);
         }
 
         #message-form input {
-            grid-row: 2 / 3;
+            grid-row: 3 / 4;
             grid-column: 2 / 10;
             margin-bottom: 15px;
             border: 0;
@@ -425,7 +424,7 @@
         }
 
         #message-form textarea {
-            grid-row: 3 / 10;
+            grid-row: 4 / 10;
             grid-column: 2 / 10;
             display: flex;
             justify-content: center;
@@ -437,7 +436,6 @@
         }
 
         #message-form textarea::placeholder {
-            /* font-size: var(---fs-jumbo); */
             padding-top: 20vh;
         }
 
@@ -642,17 +640,18 @@
             }
 
             .messageboard .right {
-                grid-row: 9 / 10;
-                grid-column: 1 / 11;
-                transform: rotate(0deg);
-                font-size: var(---fs-large);
+                grid-row: 3 / 5;
+                grid-column: 3 / 10;
+                /* transform: rotate(0deg); */
+                font-size: var(---fs-xxl);
                 writing-mode: unset;
+                text-align: center;
+                
             }
 
-            #message-list,
-            #message-form {
+            #message-container {
+                grid-row: 4 / 10;
                 grid-column: 1 / -1;
-                grid-row: 7 / -1;
             }
 
             #message-list {
@@ -663,7 +662,7 @@
             }
 
             #message-form .message-form-post {
-                margin: 15px;
+                margin: 10px;
             }
 
             .message-item {

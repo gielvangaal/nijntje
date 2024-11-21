@@ -240,6 +240,7 @@
                 } else {
                     messageform.style.display = "none";
                     messageList.style.display = "block";
+                    
                 }
             });
         });
@@ -250,6 +251,8 @@
         closeMessageFormX.addEventListener("click", function () {
             const messageForm = document.getElementById("message-form");
             messageForm.style.display = "none";
+            messageList.style.display = "block";
+
         });
 
         // CLOSE MESSAGE FORM POST // // CLOSE MESSAGE FORM POST // CLOSE MESSAGE FORM POST // CLOSE MESSAGE FORM POST // CLOSE MESSAGE FORM POST 
@@ -260,6 +263,7 @@
 
             if (messageForm.checkValidity()) {
                 messageForm.style.display = "none";
+                messageList.style.display = "block";
             } else {
                 messageForm.reportValidity();
             }
