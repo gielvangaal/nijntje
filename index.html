@@ -6,6 +6,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Ontdek de ode aan Nijntje: een speelse en stijlvolle website die mijn vaardigheden als ontwikkelaar en designer toont. Laat een bericht achter, bekijk Nijntje's zwart-witfoto's en lees meer over haar verhaal. Perfect voor recruiters, kattenliefhebbers en nieuwsgierigen.">
+    <meta name="keywords" content="Nijntje, ode aan Nijntje, portfolio ontwikkelaar, speels webdesign, messageboard, front-end development, back-end development, Django, kattenwebsite, moderne webtechnologie">
+
     <title>Nijntje</title>
     <link rel="stylesheet" href="./recources/css/stylesheet.css">
     <link rel="icon" href="./recources/images/favicon.ico" type="image/x-icon">
@@ -14,19 +18,17 @@
 
 <body>
 
-    <!-- NAV --> <!-- NAV --> <!-- NAV --> <!-- NAV --> <!-- NAV --> <!-- NAV --> <!-- NAV --> 
-    <nav>
-        <button class="nav" id="toggleMenu">
+    <!-- NAV --> <!-- NAV --> <!-- NAV --> <!-- NAV --> <!-- NAV --> <!-- NAV --> <!-- NAV -->
+
+    <nav aria-label="Navigatie met uitklapmenu en contact">
+        <button class="nav" id="toggleMenu" aria-controls="menu" aria-expanded="false">
             Menu
         </button>
 
-        <button class="nav">
-            <a href="#contact" id="contactBtn">Contact</a>
-        </button>
+        <a href="#contact" class='nav' id="contactBtn">Contact</a>
     </nav>
 
-    <div id="menu">
-
+    <nav id="menu" aria-label="Hoofdmenu">
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#fotoboek">Foto's</a></li>
@@ -34,31 +36,30 @@
             <li><a href="#about">Over Nijntje</a></li>
             <li><a href="#contact">Contact</a></li>
 
-            <li><a href="./recources/fo_nijntje.pdf">Functioneel ontwerp</a></li>
+            <li><a href="./recources/fo_nijntje.pdf" target="_blank">Functioneel ontwerp</a></li>
             <li><a id="toggleObserver">Stop auto-scroll</a></li>
         </ul>
-    </div>
+    </nav>
 
-    <!-- HERO SECTION --> <!-- HERO SECTION --> <!-- HERO SECTION --> <!-- HERO SECTION --> <!-- HERO SECTION --> 
+    <!-- HERO SECTION --> <!-- HERO SECTION --> <!-- HERO SECTION --> <!-- HERO SECTION --> <!-- HERO SECTION -->
 
-    <section class="hero-section" id="home">
+    <section class="hero-section" id="home" aria-labelledby="hero-heading">
 
-        <p class="p-left">Swsed3dfert6RDDDD-0M,MOI</p>
+        <h1 id="hero-heading">Nijntie Nijn problems but a purrr ain't one</h1>
 
         <div class="hero-image">
-            <img id="playNijntjePrrr" src="./recources/images/nijntjepng.png">
+            <img id="playNijntjePrrr" src="./recources/images/nijntjepng.png" alt="Afbeelding van Nijntje">
         </div>
 
-        <p id="nijntje-prrr">Prrrrr</p>
-        <p id="stopNijntjePrrr">(Stop)</p>
+        <span id="nijntje-prrr" aria-label="Nijntje maakt een prrr-geluid">Prrrrr</span>
+        <span id="stopNijntjePrrr" aria-label="Stop het geluid">(Stop)</span>
 
-        <h1>Nijntie Nijn problems but a purrr ain't one</h1>
-
-        <p class="p-right">//////////////;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </p>
+        <span class="span-left">Swsed3dfert6RDDDD-0M,MOI</span>
+        <span class="span-right">//////////////;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span>
 
     </section>
 
-    <!-- PHOTO SECTION --> <!-- PHOTO SECTION --> <!-- PHOTO SECTION --> <!-- PHOTO SECTION --> <!-- PHOTO SECTION --> 
+    <!-- PHOTO SECTION --> <!-- PHOTO SECTION --> <!-- PHOTO SECTION --> <!-- PHOTO SECTION --> <!-- PHOTO SECTION -->
 
     <section class="photo-section" id="fotoboek">
 
@@ -66,54 +67,64 @@
             <img src="./recources/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">
         </div>
 
-        <h2 id="toggleButton">Meer foto's van Nijntje</h2>
+        <button id="toggleButton" aria-controls="photobook-container" aria-expanded="false">
+            Meer foto's van Nijntje
+        </button>        
 
         <div id="photobook-container" class="hidden">
 
-            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-15.jpg" alt="foto nijntje"></div>
-            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-16.jpg" alt="foto nijntje"></div>
-            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-17.jpg" alt="foto nijntje"></div>
-            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-18.jpg" alt="foto nijntje"></div>
-            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-19.jpg" alt="foto nijntje"></div>
-            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje"></div>
-            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-20.jpg" alt="foto nijntje"></div>
+            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-15.jpg" alt="Nijntje half rechtop zittend op de bank met verveelde blik"></div>
+            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-16.jpg" alt="Nijntje met natte vacht ligt uitgeteld op Nadia's been"></div>
+            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-17.jpg" alt="Nog een foto van Nijntje op Nadia's been, uitgeteld"></div>
+            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-18.jpg" alt="Nijntje half met 'r pootjes op de leuning, kijkt nieuwsgierig"></div>
+            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-19.jpg" alt="Nijntje ligt op haar rug, met haar bolle buik goed zichtbaar, wilt spelen"></div>
+            <div><img src="./recources/images/PHOTO-2024-10-14-18-19-20.jpg" alt="Nijntje ligt half om de leuning heen, wachtend op een speeltje"></div>
 
         </div>
 
     </section>
 
-    <!-- MESSAGEBOARD SECTION --> <!-- MESSAGEBOARD SECTION --> <!-- MESSAGEBOARD SECTION --> <!-- MESSAGEBOARD SECTION --> <!-- MESSAGEBOARD SECTION --> 
+    <!-- MESSAGEBOARD SECTION --> <!-- MESSAGEBOARD SECTION --> <!-- MESSAGEBOARD SECTION -->
+    <!-- MESSAGEBOARD SECTION --> <!-- MESSAGEBOARD SECTION -->
 
-    <section class="messageboard" id="messageboard">
-
-        <button class="toggleMessageForm left">Zeg hallo tegen Nijntje</button>
-        <button class="toggleMessageForm right">Zeg hallo tegen Nijntje</button>
-
-        <ul id="message-list">
+    <section class="messageboard" id="messageboard" aria-label="messageboard">
+    
+        <button class="toggleMessageForm left" aria-controls="message-form" aria-expanded="false">
+            Zeg hallo tegen Nijntje
+        </button>
+        <button class="toggleMessageForm right" aria-controls="message-form" aria-expanded="false">
+            Zeg hallo tegen Nijntje
+        </button>
+    
+        <ul id="message-list" aria-live="polite" aria-relevant="additions">
             <!-- Berichten worden hier geladen -->
         </ul>
-
-        <form id="message-form">
-            <button id="closeMessageFormX" class="message-form-x">x</button>
-            <input type="text" name="username" placeholder="Naam" required>
-            <textarea name="content" placeholder="Zeg hallo" required maxlength="200"></textarea>
+    
+        <form id="message-form" aria-label="invoerveld berichten" hidden>
+            <button id="closeMessageFormX" class="message-form-x" aria-label="Formulier sluiten">x</button>
+            <label for="username"></label>
+            <input type="text" id="username" name="username" placeholder="Naam" required>
+            <label for="content"></label>
+            <textarea id="content" name="content" placeholder="Zeg hallo" required maxlength="200"></textarea>
             <button type="submit" id="closeMessageFormPost" class="message-form-post">Post</button>
         </form>
 
     </section>
+    
 
-    <!-- ABOUT SECTION --> <!-- ABOUT SECTION --> <!-- ABOUT SECTION --> <!-- ABOUT SECTION --> <!-- ABOUT SECTION --> <!-- ABOUT SECTION --> 
+    <!-- ABOUT SECTION --> <!-- ABOUT SECTION --> <!-- ABOUT SECTION --> <!-- ABOUT SECTION --> <!-- ABOUT SECTION -->
+    <!-- ABOUT SECTION -->
 
-    <section id="about">
+    <section id="about" aria-labelledby="overNijntje">
 
         <div class="video-container">
-            <video autoplay muted loop playsinline id="background-video">
+            <video autoplay muted loop playsinline id="background-video" aria-label="Video op de achtergrond van Nijntje die een muisje aan het apporteren is">
                 <source src="./recources/video/nijntje.mp4" type="video/mp4">
                 Je browser ondersteunt geen HTML5 video.
             </video>
         </div>
 
-        <button onclick="toggleVideo()" id="toggleVideo">Stop/start video</button>
+        <button onclick="toggleVideo()" id="toggleVideo" aria-controls="background-video">Stop/start video</button>
 
         <div class="about-content">
             <h2 id="overNijntje">Over Nijntje</h2>
@@ -121,7 +132,7 @@
 
         <div id="aboutModal">
 
-            <div id="marquee-container">
+            <div id="marquee-container" aria-hidden="true">
                 <aside id="marquee-content">
                     naam: nijntje &nbsp;&#128062;&nbsp;
                     geboortedatum: 01 augustus 2024 &nbsp;<img src="recources/images/pootje.svg">&nbsp;
@@ -162,13 +173,13 @@
 
     </section>
 
-    <!-- CONTACT SECTION --> <!-- CONTACT SECTION --> <!-- CONTACT SECTION --> <!-- CONTACT SECTION --> <!-- CONTACT SECTION --> <!-- CONTACT SECTION --> 
+    <!-- CONTACT SECTION -->
 
-    <section class="contact-section" id="contact">
+    <section class="contact-section" id="contact" aria-label="Contact sectie">
 
-        <form id="contactForm" action="send" method="POST">
+        <form id="contactForm" action="send" method="POST" aria-describedby="responseMessage">
 
-            <div id="responseMessage"></div>
+            <div id="responseMessage" role="status" aria-live="polite"></div>
 
             <label for="email"></label>
             <input type="email" id="email" name="email" placeholder="E-mail" required>

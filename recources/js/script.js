@@ -45,8 +45,8 @@
         // DIT HAD NIJNTJE ER ZELF OVER TE ZEGGEN // DIT HAD NIJNTJE ER ZELF OVER TE ZEGGEN // DIT HAD NIJNTJE ER ZELF OVER TE ZEGGEN // DIT HAD NIJNTJE ER ZELF OVER TE ZEGGEN 
         // Selecteer zowel p-right als p-left en zet ze in een array
         const elements = [
-            document.querySelector('.p-right'),
-            document.querySelector('.p-left')
+            document.querySelector('.span-right'),
+            document.querySelector('.span-left')
         ];
 
         // Bewaar de oorspronkelijke tekst voor elk element
@@ -86,30 +86,35 @@
                 // Clear the display container and append the new image
                 displayContainer.innerHTML = ""; // Clear previous image
                 displayContainer.appendChild(clickedImage); // Append the clicked image
+
             });
         });
+        
 
 
         // TOGGLE PHOTOBOOK // TOGGLE PHOTOBOOK // TOGGLE PHOTOBOOK // TOGGLE PHOTOBOOK // TOGGLE PHOTOBOOK // TOGGLE PHOTOBOOK // TOGGLE PHOTOBOOK
         document.getElementById("toggleButton").addEventListener("click", function () {
             const div = document.getElementById("photobook-container");
-            const header = document.querySelector(".photo-section h2");
+            const header = document.querySelector(".photo-section button");
             let orginal = document.querySelector(".nijntje-photo img");
             let orignal = orginal.outerHTML;
 
             if (div.classList.contains("hidden")) {
                 div.classList.remove("hidden");
                 div.classList.add("grid");
+                header.setAttribute("aria-expanded", "true");
                 header.textContent = "Minder foto's van Nijntje";
             }
 
             else {
                 div.classList.remove("grid");
                 div.classList.add("hidden");
+                header.setAttribute("aria-expanded", "false");
                 header.textContent = "Meer foto's van Nijntje";
                 document.querySelector(".nijntje-photo").innerHTML = '<img src="./recources/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">';
                 console.log(orginal);
             }
+
         });
 
 
@@ -131,9 +136,7 @@
                         data.forEach(message => {
                             const listItem = document.createElement('li');
                             listItem.innerHTML = `<strong>${message.username}</strong> - ${message.formatted_date} - ${message.formatted_time}<br> ${message.content}`;
-
                             listItem.classList.add('message-item');
-
                             messageList.appendChild(listItem);
                         });
                     });
