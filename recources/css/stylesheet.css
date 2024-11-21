@@ -19,14 +19,14 @@
         input,
         textarea {
             font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: var(---fs-large);
+            font-size: 1rem;
         }
 
         input::placeholder,
         textarea::placeholder {
             font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: var(---fs-large);
             text-align: center;
+            font-size: 1rem;
             opacity: 0.5;
         }
 
@@ -351,29 +351,30 @@
             align-items: start;
             font-size: var(---fs-jumbo);
             font-weight: 900;
-            
-            
         }
 
-        #message-list {
+        #message-container {
             grid-row: 4 / -1;
             grid-column: 6 / -1;
             background-color: rgb(255, 255, 255, 0.3);
             overflow: scroll;
             height: calc(100% - 60px);
             margin: 30px;
+            
+        }
+
+        #message-list {
             text-align: center;
             padding-inline-start: 0;
             box-sizing: border-box;
         }
 
- ƒ       #message-list ul li {
+        #message-list ul li {
             list-style: none;
             margin: 10px 0;
             padding: 10px;
             background-color: var(---white);
             border-radius: 10px;
-            /* box-shadow: 0 0 10px rgba(28, 28, 28, 0.1); */
         }
 
         .message-item {
@@ -382,32 +383,37 @@
         }
 
         #message-form {
-            grid-row: 6 / -1;
-            grid-column: 1 / 6;
-            /* background: linear-gradient(to right, rgb(199, 217, 223), rgb(232, 232, 232)); */
-            /* background: linear-gradient(to left, var(---orange1), var(---orange2)); */
-            /* background-color: rgb(255, 255, 255, 0.3); */
-            display: none;
-            z-index: 1;
+            /* grid-row: 6 / -1;
+            grid-column: 1 / 6; */
+            display: grid;
+            /* z-index: 5; */
             height: calc(100% - 60px);
             margin: 30px;
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
+            
         }
 
         #message-form .message-form-x {
             grid-row: 1 / 2;
-            grid-column: 10 / 11;
+            grid-column: 10 / -1;
             align-self: start;
             justify-self: end;
-            margin: 10px 15px 0 0;
+            color: var(---orange1);
+            mix-blend-mode: difference;
+            font-size: smaller;
+            
+            /* margin: 10px 15px 0 0; */
         }
 
         #message-form .message-form-post {
             grid-row: 10 / 11;
             grid-column: 4 / 8;
-            background-color: rgb(255, 255, 255, 0.3);
+            /* background-color: rgb(255, 255, 255, 0.3); */
             margin: 15px 100px;
+            color: var(---orange1);
+            mix-blend-mode: difference;
+            border: 1px dashed var(---orange1);
         }
 
         #message-form input {
@@ -415,6 +421,7 @@
             grid-column: 2 / 10;
             margin-bottom: 15px;
             border: 0;
+            z-index: 2;
         }
 
         #message-form textarea {
@@ -426,10 +433,11 @@
             resize: none;
             overflow: scroll;
             border: 0;
+            z-index: 2;
         }
 
         #message-form textarea::placeholder {
-            font-size: var(---fs-jumbo);
+            /* font-size: var(---fs-jumbo); */
             padding-top: 20vh;
         }
 

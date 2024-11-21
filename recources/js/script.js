@@ -229,13 +229,17 @@
 
         // TOGGLE MESSAGE FORM // TOGGLE MESSAGE FORM // TOGGLE MESSAGE FORM // TOGGLE MESSAGE FORM // TOGGLE MESSAGE FORM // TOGGLE MESSAGE FORM
         const buttonsToggleMessageForm = document.getElementsByClassName("toggleMessageForm");
+        const messageList = document.getElementById("message-list");
         Array.from(buttonsToggleMessageForm).forEach(button => {
             button.addEventListener("click", function () {
                 const messageform = document.getElementById("message-form");
                 if (messageform.style.display === "none" || messageform.style.display === "") {
                     messageform.style.display = "grid";
+                    messageList.style.display = "none";
+
                 } else {
                     messageform.style.display = "none";
+                    messageList.style.display = "block";
                 }
             });
         });

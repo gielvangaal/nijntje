@@ -96,18 +96,20 @@
             Zeg hallo tegen Nijntje
         </button>
     
+        <div id="message-container">
         <ul id="message-list" aria-live="polite" aria-relevant="additions">
             <!-- Berichten worden hier geladen -->
         </ul>
     
         <form id="message-form" aria-label="invoerveld berichten" hidden>
-            <button id="closeMessageFormX" class="message-form-x" aria-label="Formulier sluiten">x</button>
+            <button id="closeMessageFormX" class="message-form-x" aria-label="Formulier sluiten">sluiten</button>
             <label for="username"></label>
             <input type="text" id="username" name="username" placeholder="Naam" required>
             <label for="content"></label>
             <textarea id="content" name="content" placeholder="Zeg hallo" required maxlength="200"></textarea>
             <button type="submit" id="closeMessageFormPost" class="message-form-post">Post</button>
         </form>
+    </div>
 
     </section>
     
