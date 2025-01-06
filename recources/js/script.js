@@ -111,7 +111,7 @@
                 div.classList.add("hidden");
                 header.setAttribute("aria-expanded", "false");
                 header.textContent = "Meer foto's van Nijntje";
-                document.querySelector(".nijntje-photo").innerHTML = '<img src="./recources/images/Nijntje-photo.png" alt="Nijntje met een pootje over de bank">';
+                document.querySelector(".nijntje-photo").innerHTML = '<img src="./recources/images/Nijntje-photo.webp" alt="Nijntje met een pootje over de bank">';
                 console.log(orginal);
             }
 

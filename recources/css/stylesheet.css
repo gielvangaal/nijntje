@@ -579,9 +579,9 @@
             width: 100%;
         }
 
-        .contact-section h1 {
+        .contact-section p {
             grid-row: 2 / 4;
-            grid-column: 4 / 8;
+            grid-column: 3 / 9;
             margin: 0;
             padding: 0;
             color: var(---pink);
@@ -590,9 +590,10 @@
             display: flex;
             justify-content: start;
             align-items: start;
-            font-size: var(---fs-xxl);
-            font-weight: 900;
+            font-size: 1.2rem;
         }
+
+
 
         .contact-section input {
             grid-row: 4 / 5;

@@ -87,16 +87,17 @@
 
     .contact-section textarea::placeholder {
         font-size: var(---fs-xxl);
+        padding-top: 5vh;
     }
 
     .contact-section input {
-        grid-row: 4 / 5;
+        grid-row: 6 / 7;
         grid-column: 2 / 10;
         margin: 10px;
     }
 
     .contact-section textarea {
-        grid-row: 5 / 9;
+        grid-row: 7 / 9;
         grid-column: 2 / 10;
         margin: 10px;
     }
@@ -108,8 +109,8 @@
         margin: 20px 0px; padding: 0;
     }
 
-    .contact-section h1 {
-        font-size: var(---fs-xxl);
+    .contact-section p {
+        
         grid-row: 2 / 4;
             grid-column: 2 / 10;
     }
