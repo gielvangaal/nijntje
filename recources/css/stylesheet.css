@@ -3,10 +3,10 @@
         :root {
             ---fs-small: ;
             ---fs-medium: clamp(0.75rem, 1vw, 2rem);
-            ---fs-large: clamp(1.5rem, 2vw, 2.5rem);
-            ---fs-xl: clamp(2rem, 3vw, 4rem);
-            ---fs-xxl: clamp(3rem, 4vw, 5rem);
-            ---fs-jumbo: clamp(10rem, 9vw, 8rem);
+            ---fs-large: clamp(1rem, 2vw, 2.5rem);
+            ---fs-xl: clamp(1.5rem, 3vw, 3rem);
+            ---fs-xxl: clamp(2rem, 4vw, 4rem);
+            ---fs-jumbo: clamp(7rem, 9vw, 9rem);
 
             ---blue: #add8e6;
             ---white: #e8e8e8;
@@ -19,14 +19,14 @@
         input,
         textarea {
             font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
 
         input::placeholder,
         textarea::placeholder {
             font-family: Georgia, 'Times New Roman', Times, serif;
             text-align: center;
-            font-size: 1rem;
+            font-size: 1.2rem;
             opacity: 0.5;
         }
 
@@ -52,6 +52,7 @@
             color: inherit;
             cursor: pointer;
             outline: none;
+            display: inline-block;
         }
 
         /* NAV */ /* NAV */ /* NAV */ /* NAV */ /* NAV */ /* NAV */ /* NAV */ /* NAV */ /* NAV */ /* NAV */ /* NAV */ /* NAV */ /* NAV */ /* NAV */ 
@@ -107,13 +108,8 @@
             width: 125px;
         }
 
-        #menu ul li:nth-last-child(2) {
-            margin-top: 15px;
-            font-size: smaller;
-            font-style: italic;
-        }
-
         #menu ul li:last-child {
+            margin-top: 15px;
             font-size: smaller;
             font-style: italic;
         }
@@ -251,20 +247,25 @@
         #toggleButton {
             grid-row: 6 / 8;
             grid-column: 5 / 7;
-            display: flex;
+            display: inline-block;
             align-items: center;
-            justify-content: center;
-            text-align: center;
+            justify-content: center; 
+            text-align: center; 
             font-size: var(---fs-large);
             z-index: 1;
             mix-blend-mode: difference;
             color: var(---pink);
             cursor: pointer;
             font-weight: 700;
+            background-image: url(../images/grain2.svg);
+            border: 5px dashed var(---pink);
+            border-radius: 10px;
+            margin: 20px;
         }
 
         #toggleButton:hover {
             color: var(---white);
+            background-image: none;
         }
 
         #photobook-container {
@@ -318,29 +319,12 @@
             display: grid;
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
+            font-size: 1.2rem;
         }
 
-        .messageboard .left {
-            grid-row: 1 / 11;
-            grid-column: 1 / 3;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            margin: 0;
-            padding: 0;
-            color: var(---white);
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: var(---fs-xl);
-            font-weight: 700;
-            display: none;
-        }
-
-        .messageboard .right {
+        .messageboard h1 {
             grid-row: 2 / 5;
-            grid-column: 2 / 9;
-            /* writing-mode: vertical-rl; */
+            grid-column: 2 / 8;
             margin: 0;
             padding: 0;
             color: var(---orange1);
@@ -351,7 +335,22 @@
             align-items: start;
             font-size: var(---fs-jumbo);
             font-weight: 900;
-            /* z-index: -1; */
+        }
+
+        .messageboard button {
+            background-image: url(../images/grain2.svg);
+            border: 5px dashed var(---orange2);
+            border-radius: 10px;
+        }
+
+        .messageboard .toggleMessageForm {
+            grid-row: 3 / 4;
+            grid-column: 7 / 10;
+            color: var(---orange2);
+            mix-blend-mode: difference;
+            cursor: pointer;
+            margin: 10px; padding: 0;
+            font-weight: 700;
         }
 
         #message-container {
@@ -384,12 +383,8 @@
         }
 
         #message-form {
-            /* grid-row: 6 / -1;
-            grid-column: 1 / 6; */
             display: grid;
-            /* z-index: 5; */
             height: 100%;
-            /* margin: 30px; */
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
             background-color: var(---white);
@@ -404,15 +399,16 @@
             mix-blend-mode: difference;
             font-size: smaller;
             margin: 10px 15px 0 0;
+            padding: 5px;
         }
 
         #message-form .message-form-post {
             grid-row: 10 / 11;
-            grid-column: 5 / 7;
-            margin: 15px;
+            grid-column: 4 / 8;
             color: var(---orange1);
             mix-blend-mode: difference;
-            border: 1px dashed var(---orange1);
+            font-size: 1.2rem;
+            margin: 5px;
         }
 
         #message-form input {
@@ -459,11 +455,6 @@
             filter: grayscale(100%) brightness(1.1);
         }
 
-        #overNijntje {
-            cursor: pointer;
-
-        }
-
         #about {
             height: 100vh;
             width: 100vw;
@@ -472,6 +463,21 @@
             display: grid;
             grid-template-columns: repeat(10, 10%);
             grid-template-rows: repeat(10, 10%);
+        }
+
+        #overNijntje {
+            cursor: pointer;
+            border: 5px dashed var(---white);
+            border-radius: 10px;
+            padding: 15px;
+            font-weight: 700;
+            background-image: url(../images/grain2.svg);
+            font-size: var(---fs-xl);
+        }
+
+        #overNijntje:hover {
+            color: var(---white);
+            background-image: none;
         }
 
         #marquee-container {
@@ -531,28 +537,30 @@
             color: var(---white);
         }
 
+        #aboutModal {
+            display: none;
+            grid-row: 2 / 8;
+            grid-column: 2 / 10;
+            background-color: rgb(223, 196, 128, 0.2);
+            border-radius: 10px;
+            z-index: 3;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
+            overflow: scroll;
+            font-size: 1.2rem;
+        }
+
         .about-content {
             position: relative;
             z-index: 3;
-            grid-row: 9 / 11;
-            grid-column: 4 / 8;
+            grid-row: 9 / 10;
+            grid-column: 3 / 9;
             align-self: center;
             justify-self: center;
             text-align: center;
             font-size: var(---fs-xl);
             mix-blend-mode: difference;
             color: var(---pink);
-        }
-
-        #aboutModal {
-            display: none;
-            grid-row: 2 / 9;
-            grid-column: 2 / 10;
-            background-color: rgb(223, 196, 128, 0.8);
-            z-index: 3;
-            grid-template-columns: repeat(10, 10%);
-            grid-template-rows: repeat(10, 10%);
-            overflow: scroll;
         }
 
         /* CONTACT SECTIE  */ /* CONTACT SECTIE  */ /* CONTACT SECTIE  */ /* CONTACT SECTIE  */ /* CONTACT SECTIE  */ /* CONTACT SECTIE  */ 
@@ -571,28 +579,47 @@
             width: 100%;
         }
 
+        .contact-section h1 {
+            grid-row: 2 / 4;
+            grid-column: 4 / 8;
+            margin: 0;
+            padding: 0;
+            color: var(---pink);
+            mix-blend-mode: difference;
+            text-align: center;
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            font-size: var(---fs-xxl);
+            font-weight: 900;
+        }
+
         .contact-section input {
-            grid-row: 2 / 3;
-            grid-column: 2 / 10;
+            grid-row: 4 / 5;
+            grid-column: 4 / 8;
             margin: 10px;
         }
 
         .contact-section textarea {
-            grid-row: 3 / 9;
-            grid-column: 2 / 10;
+            grid-row: 5 / 9;
+            grid-column: 4 / 8;
             margin: 10px;
         }
 
         .contact-section textarea::placeholder {
             font-size: var(---fs-jumbo);
-            padding-top: 20vh;
+            padding-top: 10vh;
         }
 
         .contact-section button {
             grid-row: 9 / 10;
             grid-column: 5 / 7;
-            background-color: rgb(255, 255, 255, 0.5);
-            margin: 15px;
+            border: 5px dashed var(---white);
+            border-radius: 10px;
+            margin: 5px; padding: 0;
+            font-size: 1.2rem;
+            background-image: url(../images/grain2.svg);
+            
         }
 
         #responseMessage {
@@ -605,86 +632,3 @@
             height: 100%;
         }
 
-
-        /* SM: portrait phones, less than 576.98px */
-        @media (max-width: 575.98px) {
-            .nijntje-photo {
-                grid-row: 1 / 5;
-                grid-column: 1 / 11;
-                padding: 10px 20px 0 0;
-            }
-
-            #toggleButton {
-                grid-row: 5 / 6;
-                grid-column: 4 / 7;
-            }
-
-            h2 {
-                grid-row: 4 / 6;
-                grid-column: 3 / 6;
-            }
-
-            #photobook-container {
-                grid-row: 6 / 11;
-                grid-column: 1 / 11;
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-
-            .messageboard .left {
-                grid-row: 1 / 2;
-                grid-column: 1 / 11;
-                writing-mode: unset;
-                transform: rotate(0deg);
-                font-size: var(---fs-large);
-                padding: 10px;
-            }
-
-            .messageboard .right {
-                grid-row: 3 / 5;
-                grid-column: 3 / 10;
-                /* transform: rotate(0deg); */
-                font-size: var(---fs-xxl);
-                writing-mode: unset;
-                text-align: center;
-                
-            }
-
-            #message-container {
-                grid-row: 4 / 10;
-                grid-column: 1 / -1;
-            }
-
-            #message-list {
-                width: calc(100% - 30px);
-                height: auto;
-                margin: 15px;
-                box-sizing: border-box;
-            }
-
-            #message-form .message-form-post {
-                margin: 10px;
-            }
-
-            .message-item {
-                font-size: 1rem;
-            }
-
-            #message-form textarea::placeholder {
-                font-size: var(---fs-large);
-            }
-
-            .about-content {
-                font-size: var(---fs-large);
-            }
-
-            .contact-section textarea::placeholder {
-                font-size: var(---fs-large);
-            }
-
-            .contact-section button {
-                grid-row: 9 / 10;
-                grid-column: 4 / 8;
-                background-color: rgb(255, 255, 255, 0.5);
-                margin: 15px;
-            }
-        }

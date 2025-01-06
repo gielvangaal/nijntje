@@ -270,55 +270,6 @@
         });
 
 
-        // OBSERVER AUTO-SCROLL // OBSERVER AUTO-SCROLL // OBSERVER AUTO-SCROLL // OBSERVER AUTO-SCROLL // OBSERVER AUTO-SCROLL // OBSERVER AUTO-SCROLL 
-        // Selecteer de knop
-        const toggleButton = document.getElementById('toggleObserver');
-
-        // Selecteer alle secties
-        const sections = document.querySelectorAll('section');
-
-        // Opties voor de IntersectionObserver
-        const observerOptions = {
-            root: null,             // viewport als root
-            rootMargin: '0px',
-            threshold: 0.2          // activeer wanneer 40% zichtbaar is
-        };
-
-        // Maak de IntersectionObserver aan
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Scroll de sectie naar het midden van het scherm
-                    entry.target.scrollIntoView({
-                        behavior: 'smooth', // soepele scroll-animatie
-                        block: 'center'     // centreer de sectie
-                    });
-                }
-            });
-        }, observerOptions);
-
-        // Variabele om de staat van de observer bij te houden
-        let observerActive = true;
-
-        // Functie om de observer aan of uit te zetten
-        function toggleObserver() {
-            if (observerActive) {
-                // Stop de observer
-                sections.forEach(section => observer.unobserve(section));
-                toggleButton.textContent = 'Start auto-scroll'; // Verander de knoptekst
-            } else {
-                // Start de observer
-                sections.forEach(section => observer.observe(section));
-                toggleButton.textContent = 'Stop auto-scroll'; // Verander de knoptekst
-            }
-            observerActive = !observerActive; // Wissel de staat van de observer
-        }
-
-        // Start de observer meteen wanneer de pagina wordt geladen
-        sections.forEach(section => observer.observe(section));
-
-        // Voeg de onclick handler toe aan de knop
-        toggleButton.addEventListener('click', toggleObserver);
 
 
         // VIDEO AAN/UIT // VIDEO AAN/UIT // VIDEO AAN/UIT // VIDEO AAN/UIT // VIDEO AAN/UIT // VIDEO AAN/UIT // VIDEO AAN/UIT // VIDEO AAN/UIT 

@@ -36,7 +36,7 @@ app.post("/send", async (req, res) => {
         from: req.body.email, // Afzender e-mailadres
         to: process.env.EMAIL_USER, // Jouw e-mailadres
         subject: "Nijntje mail",
-        text: req.body.message // Berichtinhoud
+        text: `E-mail van: ${req.body.email}\n\n${req.body.message}`// Berichtinhoud
     };
 
     try {
